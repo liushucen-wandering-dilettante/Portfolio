@@ -14,13 +14,6 @@
           <div class="topRow">
             <div class="brand">PORTFOLIO</div>
 
-            <!-- Language switch -->
-            <div class="langSwitch" role="group" aria-label="Language switch">
-              <button type="button" class="langBtn" data-lang="zh">中</button>
-              <button type="button" class="langBtn" data-lang="en">EN</button>
-            </div>
-          </div>
-
           <div class="identity">
             <h1 class="name">刘书岑</h1>
 
@@ -156,27 +149,36 @@
         </nav>
       </div>
     </div>
-<p data-lang="en">EN TEST</p>
-   <script>
+
+ <script>
   (function () {
     const KEY = "site_lang";
     const html = document.documentElement;
-    const buttons = document.querySelectorAll(".langBtn");
 
     function apply(lang) {
-      html.setAttribute("data-ui-lang", lang); // 交给 CSS 隐藏/显示
-      buttons.forEach(btn => btn.classList.toggle("isActive", btn.dataset.lang === lang));
+      html.setAttribute("data-ui-lang", lang);
       html.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
       try { localStorage.setItem(KEY, lang); } catch(e) {}
+
+      // 更新按钮高亮（可有可无）
+      document.querySelectorAll(".langBtn").forEach(btn => {
+        btn.classList.toggle("isActive", btn.dataset.lang === lang);
+      });
     }
 
-    if (!buttons.length) return;
-
+    // 初始语言
     const saved = (() => { try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
     const browser = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
     apply(saved || browser);
 
-    buttons.forEach(btn => btn.addEventListener("click", () => apply(btn.dataset.lang)));
+    // 事件委托：点击任何 .langBtn 都能触发
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".langBtn");
+      if (!btn) return;
+      const lang = (btn.dataset.lang || "").trim().toLowerCase();
+      if (lang !== "zh" && lang !== "en") return;
+      apply(lang);
+    });
   })();
 </script>
   </body>
