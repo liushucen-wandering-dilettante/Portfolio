@@ -1,3 +1,40 @@
+    <script>
+      (function () {
+        const KEY = "site_lang";
+        const buttons = document.querySelectorAll(".langBtn");
+        const nodes = document.querySelectorAll("[data-lang]");
+
+        function apply(lang) {
+          nodes.forEach(el => {
+            el.style.display = (el.getAttribute("data-lang") === lang) ? "" : "none";
+          });
+          buttons.forEach(btn => {
+            btn.classList.toggle("isActive", btn.dataset.lang === lang);
+          });
+          document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+          try { localStorage.setItem(KEY, lang); } catch(e) {}
+        }
+
+        if (!buttons.length || !nodes.length) return;
+
+        const saved = (() => { try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
+        const browser = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+        apply(saved || browser);
+
+        buttons.forEach(btn => {
+          btn.addEventListener("click", () => apply(btn.dataset.lang));
+        });
+      })();
+    </script>
+  </body>
+</html>
+   <!-- Language switch -->
+        <div class="langSwitch" role="group" aria-label="Language switch">
+          <button type="button" class="langBtn" data-lang="zh">中</button>
+          <button type="button" class="langBtn" data-lang="en">EN</button>
+        </div>
+
+
 <!doctype html>
 <html lang="zh-CN">
   <head>
@@ -12,14 +49,11 @@
       <aside class="side">
         <div class="brand">PORTFOLIO</div>
 
-        <!-- Language switch -->
-        <div class="langSwitch" role="group" aria-label="Language switch">
-          <button type="button" class="langBtn" data-lang="zh">中</button>
-          <button type="button" class="langBtn" data-lang="en">EN</button>
-        </div>
-
+     
         <div class="meta">
-          <div>Changsha / Remote</div>
+          <span data-lang="zh">长沙/远程</span>
+          <span data-lang="en">Changsha/Remote</span>
+        
           <div>
             <a href="mailto:liushucen991214@gmail.com">liushucen991214@gmail.com</a>
           </div>
@@ -124,33 +158,3 @@
     </div>
 
     <!-- Language switch script (must be before </body>) -->
-    <script>
-      (function () {
-        const KEY = "site_lang";
-        const buttons = document.querySelectorAll(".langBtn");
-        const nodes = document.querySelectorAll("[data-lang]");
-
-        function apply(lang) {
-          nodes.forEach(el => {
-            el.style.display = (el.getAttribute("data-lang") === lang) ? "" : "none";
-          });
-          buttons.forEach(btn => {
-            btn.classList.toggle("isActive", btn.dataset.lang === lang);
-          });
-          document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-          try { localStorage.setItem(KEY, lang); } catch(e) {}
-        }
-
-        if (!buttons.length || !nodes.length) return;
-
-        const saved = (() => { try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
-        const browser = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
-        apply(saved || browser);
-
-        buttons.forEach(btn => {
-          btn.addEventListener("click", () => apply(btn.dataset.lang));
-        });
-      })();
-    </script>
-  </body>
-</html>
