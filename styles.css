@@ -1,3 +1,6 @@
+/* ===== Language visibility (CSS controls) ===== */
+html[data-ui-lang="zh"] [data-lang="en"] { display: none !important; }
+html[data-ui-lang="en"] [data-lang="zh"] { display: none !important; }
 :root{
   --bg:#fff;
   --text:#0f0f10;
