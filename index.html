@@ -122,69 +122,31 @@
     </div>
 
     <!-- Script 必须在 body 内，且放在内容之后 -->
-<script>
+    <script>
       (function () {
         const KEY = "site_lang";
-        
-        // 1. 获取所有需要切换语言的元素和按钮
-        // 使用函数获取是为了确保逻辑执行时能抓取到最新的 DOM
-        const getElements = () => ({
-          buttons: document.querySelectorAll(".langBtn"),
-          nodes: document.querySelectorAll("[data-lang]")
-        });
+        const buttons = document.querySelectorAll(".langBtn");
+        const nodes = document.querySelectorAll("[data-lang]");
 
         function apply(lang) {
-          const { buttons, nodes } = getElements();
-          if (!nodes.length) return;
-
-          // 2. 切换文字显示
           nodes.forEach(el => {
-            // 如果元素的 data-lang 属性等于当前选中的语言，则显示（恢复默认布局）
-            // 否则完全隐藏
             el.style.display = (el.getAttribute("data-lang") === lang) ? "" : "none";
           });
-
-          // 3. 更新按钮的高亮状态
           buttons.forEach(btn => {
-            if (btn.dataset.lang === lang) {
-              btn.classList.add("isActive");
-            } else {
-              btn.classList.remove("isActive");
-            }
+            btn.classList.toggle("isActive", btn.dataset.lang === lang);
           });
-
-          // 4. 更新 HTML 根节点的 lang 属性（利于 SEO 和插件翻译）
           document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-
-          // 5. 存入本地浏览器缓存，实现跨页面同步
-          try {
-            localStorage.setItem(KEY, lang);
-          } catch (e) {
-            console.warn("无法保存语言偏好:", e);
-          }
+          try { localStorage.setItem(KEY, lang); } catch(e) {}
         }
 
-        // --- 初始化逻辑 ---
+        if (!buttons.length || !nodes.length) return;
 
-        // 优先级：1.用户手动选过的(localStorage) > 2.浏览器语言 > 3.默认中文
-        const saved = (function() {
-          try { return localStorage.getItem(KEY); } catch(e) { return null; }
-        })();
-        
-        const browserLang = (navigator.language || navigator.userLanguage).startsWith("zh") ? "zh" : "en";
-        const finalLang = saved || browserLang || "zh";
+        const saved = (() => { try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
+        const browser = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+        apply(saved || browser);
 
-        // 立即执行一次应用
-        apply(finalLang);
-
-        // 6. 绑定点击事件
-        const { buttons } = getElements();
         buttons.forEach(btn => {
-          btn.addEventListener("click", function(e) {
-            e.preventDefault();
-            const targetLang = this.dataset.lang;
-            apply(targetLang);
-          });
+          btn.addEventListener("click", () => apply(btn.dataset.lang));
         });
       })();
     </script>
