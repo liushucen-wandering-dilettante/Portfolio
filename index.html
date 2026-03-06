@@ -10,9 +10,17 @@
   <body>
     <div class="shell">
       <div class="col">
+        <!-- TOP -->
         <header class="top">
           <div class="topRow">
             <div class="brand">PORTFOLIO</div>
+
+            <!-- Language switch -->
+            <div class="langSwitch" role="group" aria-label="Language switch">
+              <button type="button" class="langBtn" data-lang="zh">中</button>
+              <button type="button" class="langBtn" data-lang="en">EN</button>
+            </div>
+          </div>
 
           <div class="identity">
             <h1 class="name">刘书岑</h1>
@@ -22,13 +30,17 @@
                 <span data-lang="zh">长沙 / 远程</span>
                 <span data-lang="en">Changsha / Remote</span>
               </div>
-              <div><a href="mailto:liushucen991214@gmail.com">liushucen991214@gmail.com</a></div>
-              <div><a href="/cv.pdf">CV.pdf</a></div>
+              <div>
+                <a href="mailto:liushucen991214@gmail.com">liushucen991214@gmail.com</a>
+              </div>
+              <div>
+                <a href="/cv.pdf">CV.pdf</a>
+              </div>
             </div>
           </div>
         </header>
 
-        <!-- Panels -->
+        <!-- PANELS -->
         <main class="panelWrap">
           <!-- INFORMATION -->
           <section class="panel isActive" id="panel-info" data-panel="info">
@@ -102,8 +114,7 @@
                 <!-- Card 1 -->
                 <a class="card" href="/projects/project-1.html">
                   <div class="thumb">
-                    <!-- 建议放缩略图链接（外链也行） -->
-                    <!-- <img loading="lazy" src="..." alt="cover" /> -->
+                    <!-- <img loading="lazy" src="缩略图URL" alt="cover" /> -->
                   </div>
 
                   <div class="cardTitle">
@@ -131,8 +142,6 @@
                     <span data-lang="en">Curating / Moving Image / City Perception · 2025.03–2025.07</span>
                   </div>
                 </a>
-
-                <!-- 继续复制 card 块即可增加项目 -->
               </div>
             </div>
           </section>
@@ -150,36 +159,60 @@
       </div>
     </div>
 
- <script>
-  (function () {
-    const KEY = "site_lang";
-    const html = document.documentElement;
+    <script>
+      (function () {
+        // ===== Language (CSS-driven) =====
+        const LANG_KEY = "site_lang";
+        const html = document.documentElement;
 
-    function apply(lang) {
-      html.setAttribute("data-ui-lang", lang);
-      html.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-      try { localStorage.setItem(KEY, lang); } catch(e) {}
+        function applyLang(lang) {
+          html.setAttribute("data-ui-lang", lang);
+          html.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+          try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
 
-      // 更新按钮高亮（可有可无）
-      document.querySelectorAll(".langBtn").forEach(btn => {
-        btn.classList.toggle("isActive", btn.dataset.lang === lang);
-      });
-    }
+          // button highlight
+          document.querySelectorAll(".langBtn").forEach(btn => {
+            btn.classList.toggle("isActive", (btn.dataset.lang || "").toLowerCase() === lang);
+          });
+        }
 
-    // 初始语言
-    const saved = (() => { try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
-    const browser = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
-    apply(saved || browser);
+        const savedLang = (() => { try { return localStorage.getItem(LANG_KEY); } catch(e) { return null; } })();
+        const browserLang = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+        applyLang((savedLang || browserLang).toLowerCase());
 
-    // 事件委托：点击任何 .langBtn 都能触发
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest(".langBtn");
-      if (!btn) return;
-      const lang = (btn.dataset.lang || "").trim().toLowerCase();
-      if (lang !== "zh" && lang !== "en") return;
-      apply(lang);
-    });
-  })();
-</script>
+        // event delegation for language buttons
+        document.addEventListener("click", (e) => {
+          const btn = e.target.closest(".langBtn");
+          if (!btn) return;
+          const lang = (btn.dataset.lang || "").trim().toLowerCase();
+          if (lang !== "zh" && lang !== "en") return;
+          applyLang(lang);
+        });
+
+        // ===== Tabs =====
+        const TAB_KEY = "site_panel";
+        const panels = document.querySelectorAll(".panel");
+
+        function showPanel(name) {
+          panels.forEach(p => p.classList.toggle("isActive", p.dataset.panel === name));
+          document.querySelectorAll(".tabBtn").forEach(b => {
+            b.classList.toggle("isActive", b.dataset.panelTarget === name);
+          });
+          try { localStorage.setItem(TAB_KEY, name); } catch(e) {}
+          window.scrollTo({ top: 0, behavior: "instant" });
+        }
+
+        const savedPanel = (() => { try { return localStorage.getItem(TAB_KEY); } catch(e) { return null; } })();
+        showPanel(savedPanel || "info");
+
+        document.addEventListener("click", (e) => {
+          const btn = e.target.closest(".tabBtn");
+          if (!btn) return;
+          const target = btn.dataset.panelTarget;
+          if (target !== "info" && target !== "work") return;
+          showPanel(target);
+        });
+      })();
+    </script>
   </body>
 </html>
