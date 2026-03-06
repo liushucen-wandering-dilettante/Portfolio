@@ -16,11 +16,12 @@
             <div class="brand">PORTFOLIO</div>
 
             <!-- Language switch -->
-            <div class="langSwitch" role="group" aria-label="Language switch">
-              <button type="button" class="langBtn" data-lang="zh">中</button>
-              <button type="button" class="langBtn" data-lang="en">EN</button>
-            </div>
-          </div>
+          <div class="langSwitch" role="group" aria-label="Language switch">
+  <button type="button" class="langBtn" data-lang="zh"
+    onclick="window.setLang && window.setLang('zh')">中</button>
+  <button type="button" class="langBtn" data-lang="en"
+    onclick="window.setLang && window.setLang('en')">EN</button>
+</div>
 
           <div class="identity">
             <h1 class="name">刘书岑</h1>
@@ -159,60 +160,28 @@
       </div>
     </div>
 
-    <script>
-      (function () {
-        // ===== Language (CSS-driven) =====
-        const LANG_KEY = "site_lang";
-        const html = document.documentElement;
+  <script>
+  (function () {
+    const KEY = "site_lang";
+    const html = document.documentElement;
 
-        function applyLang(lang) {
-          html.setAttribute("data-ui-lang", lang);
-          html.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-          try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
+    window.setLang = function (lang) {
+      lang = (lang || "").toLowerCase();
+      if (lang !== "zh" && lang !== "en") return;
 
-          // button highlight
-          document.querySelectorAll(".langBtn").forEach(btn => {
-            btn.classList.toggle("isActive", (btn.dataset.lang || "").toLowerCase() === lang);
-          });
-        }
+      html.setAttribute("data-ui-lang", lang);
+      html.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+      try { localStorage.setItem(KEY, lang); } catch(e) {}
 
-        const savedLang = (() => { try { return localStorage.getItem(LANG_KEY); } catch(e) { return null; } })();
-        const browserLang = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
-        applyLang((savedLang || browserLang).toLowerCase());
+      document.querySelectorAll(".langBtn").forEach(btn => {
+        btn.classList.toggle("isActive", (btn.dataset.lang || "").toLowerCase() === lang);
+      });
+    };
 
-        // event delegation for language buttons
-        document.addEventListener("click", (e) => {
-          const btn = e.target.closest(".langBtn");
-          if (!btn) return;
-          const lang = (btn.dataset.lang || "").trim().toLowerCase();
-          if (lang !== "zh" && lang !== "en") return;
-          applyLang(lang);
-        });
-
-        // ===== Tabs =====
-        const TAB_KEY = "site_panel";
-        const panels = document.querySelectorAll(".panel");
-
-        function showPanel(name) {
-          panels.forEach(p => p.classList.toggle("isActive", p.dataset.panel === name));
-          document.querySelectorAll(".tabBtn").forEach(b => {
-            b.classList.toggle("isActive", b.dataset.panelTarget === name);
-          });
-          try { localStorage.setItem(TAB_KEY, name); } catch(e) {}
-          window.scrollTo({ top: 0, behavior: "instant" });
-        }
-
-        const savedPanel = (() => { try { return localStorage.getItem(TAB_KEY); } catch(e) { return null; } })();
-        showPanel(savedPanel || "info");
-
-        document.addEventListener("click", (e) => {
-          const btn = e.target.closest(".tabBtn");
-          if (!btn) return;
-          const target = btn.dataset.panelTarget;
-          if (target !== "info" && target !== "work") return;
-          showPanel(target);
-        });
-      })();
-    </script>
+    const saved = (() => { try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
+    const browser = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+    window.setLang(saved || browser);
+  })();
+</script>
   </body>
 </html>
