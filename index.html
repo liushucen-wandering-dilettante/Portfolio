@@ -157,51 +157,27 @@
       </div>
     </div>
 
-    <script>
-      (function () {
-        // ---- Language switch ----
-        const LANG_KEY = "site_lang";
-        const langButtons = document.querySelectorAll(".langBtn");
-        const langNodes = document.querySelectorAll("[data-lang]");
+   <script>
+  (function () {
+    const KEY = "site_lang";
+    const html = document.documentElement;
+    const buttons = document.querySelectorAll(".langBtn");
 
-        function applyLang(lang) {
-          langNodes.forEach(el => {
-            el.style.display = (el.getAttribute("data-lang") === lang) ? "" : "none";
-          });
-          langButtons.forEach(btn => {
-            btn.classList.toggle("isActive", btn.dataset.lang === lang);
-          });
-          document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-          try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
-        }
+    function apply(lang) {
+      html.setAttribute("data-ui-lang", lang); // 交给 CSS 隐藏/显示
+      buttons.forEach(btn => btn.classList.toggle("isActive", btn.dataset.lang === lang));
+      html.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
+      try { localStorage.setItem(KEY, lang); } catch(e) {}
+    }
 
-        const savedLang = (() => { try { return localStorage.getItem(LANG_KEY); } catch(e) { return null; } })();
-        const browserLang = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
-        applyLang(savedLang || browserLang);
+    if (!buttons.length) return;
 
-        langButtons.forEach(btn => {
-          btn.addEventListener("click", () => applyLang(btn.dataset.lang));
-        });
+    const saved = (() => { try { return localStorage.getItem(KEY); } catch(e) { return null; } })();
+    const browser = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+    apply(saved || browser);
 
-        // ---- Tabs: info / work ----
-        const TAB_KEY = "site_panel";
-        const tabBtns = document.querySelectorAll(".tabBtn");
-        const panels = document.querySelectorAll(".panel");
-
-        function showPanel(name) {
-          panels.forEach(p => p.classList.toggle("isActive", p.dataset.panel === name));
-          tabBtns.forEach(b => b.classList.toggle("isActive", b.dataset.panelTarget === name));
-          try { localStorage.setItem(TAB_KEY, name); } catch(e) {}
-          window.scrollTo({ top: 0, behavior: "instant" });
-        }
-
-        const savedPanel = (() => { try { return localStorage.getItem(TAB_KEY); } catch(e) { return null; } })();
-        showPanel(savedPanel || "info");
-
-        tabBtns.forEach(btn => {
-          btn.addEventListener("click", () => showPanel(btn.dataset.panelTarget));
-        });
-      })();
-    </script>
+    buttons.forEach(btn => btn.addEventListener("click", () => apply(btn.dataset.lang)));
+  })();
+</script>
   </body>
 </html>
