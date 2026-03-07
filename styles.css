@@ -9,7 +9,7 @@
   --padX: 44px;
   --padY: 40px;
 }
-  --blockGap: 40px;       /* 板块之间间距 */
+  --blockGap: 80px;       /* 板块之间间距 */
   --rowGap: 14px;         /* 同一板块内部行距/段落间距 */
 
   --zhSize: 13.5px;       /* 中文字号 */
