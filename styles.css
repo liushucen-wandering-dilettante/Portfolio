@@ -89,14 +89,28 @@ a:hover{ text-decoration: underline; text-underline-offset: 3px; }
   display:flex;
   flex-direction:column;
   gap: 6px;
-  margin-bottom: var(--blockGap);
+  margin-bottom: calc(var(--blockGap)+10px);
   color: var(--muted);
   font-size: 12.5px;
 }
 
 /* 板块：不画线，只留间距 */
+/* Make section spacing clearer */
 .block{
   margin-top: var(--blockGap);
+  padding-top: 0;
+}
+
+.block + .block{
+  margin-top: calc(var(--blockGap) + 8px); /* 模块之间更明显 */
+}
+
+.h2{
+  margin: 0 0 14px;
+}
+
+.block .h2{
+  margin-top: 6px;  /* 标题与上一模块内容之间再拉开一点点 */
 }
 
 /* 板块标题 */
