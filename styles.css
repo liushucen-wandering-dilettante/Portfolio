@@ -1,213 +1,286 @@
-/* ===== Typography + Layout (left column, bilingual stacked) ===== */
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name — Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio website"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="frame">
+      <!-- 左侧目录 -->
+      <aside class="index-nav">
+        <div class="index-title">Index</div>
+        <nav>
+          <a href="#info"><span>00.</span><span>Information</span></a>
+          <a href="#project-a"><span>01.</span><span>Project A</span></a>
+          <a href="#project-b"><span>02.</span><span>Project B</span></a>
+          <a href="#project-c"><span>03.</span><span>Project C</span></a>
+          <a href="#project-d"><span>04.</span><span>Project D</span></a>
+          <a href="#project-e"><span>05.</span><span>Project E</span></a>
+          <a href="#project-f"><span>06.</span><span>Project F</span></a>
+        </nav>
+      </aside>
 
-:root{
-  --bg:#111213;
-  --text: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.62);
-  /* 左栏宽度：最小 360px，理想 33vw，最大 460px */
-  --colW: clamp(360px, 33vw, 440px);
-  --padX: 44px;
-  --padY: 40px;
-}
-  --blockGap: 80px;       /* 板块之间间距 */
-  --rowGap: 14px;         /* 同一板块内部行距/段落间距 */
+      <!-- 右上角简介 -->
+      <section class="intro" id="info">
+        <p class="intro-text">
+          这里可以放你的个人简介、创作陈述或一句比较简洁的自我介绍。
+          建议控制在 4–6 行，保持留白和克制的节奏。你也可以写成中英双语。
+        </p>
 
-  --zhSize: 13.5px;       /* 中文字号 */
-  --enSize: 12.5px;       /* 英文字号（更小一点更像参考） */
-  --lh: 1.65;
-  --caps: .12em;
-}
+        <div class="profile">
+          <div class="profile-title">Profile</div>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </section>
 
-/* 可选：自托管 IBM Plex Mono（推荐，国内外都稳） */
-/* 把字体文件放到 /fonts/ 目录，再取消注释下面三段
-@font-face{
-  font-family:"IBM Plex Mono";
-  src:url("/fonts/IBMPlexMono-Regular.woff2") format("woff2");
-  font-weight:400;
-  font-style:normal;
-  font-display:swap;
-}
-@font-face{
-  font-family:"IBM Plex Mono";
-  src:url("/fonts/IBMPlexMono-Medium.woff2") format("woff2");
-  font-weight:500;
-  font-style:normal;
-  font-display:swap;
-}
-@font-face{
-  font-family:"IBM Plex Mono";
-  src:url("/fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
-  font-weight:600;
-  font-style:normal;
-  font-display:swap;
-}
-*/
+      <!-- 项目列表 -->
+      <section class="projects">
+        <!-- Project A -->
+        <article class="project" id="project-a">
+          <div class="project-no">01.</div>
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
-body{
-  margin:0;
-  background: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project A</h2>
+                <div class="meta">
+                  <p>Independent publication</p>
+                  <p>Chinese / English</p>
+                  <p>2025</p>
+                </div>
+              </div>
 
-/* 整页只占左侧一栏，右侧留空 */
-.shell{
-  min-height: 100%;
-  padding: var(--padY) var(--padX);
-}
+              <div class="spec">
+                <p>Book / Publication</p>
+                <p>210 × 297 mm</p>
+                <p>96 pages</p>
+                <p>Softcover</p>
+              </div>
+            </div>
 
-.col{
-  width: var(--colW);
-  max-width: calc(100vw - (var(--padX) * 2));
-}
+            <p class="project-text">
+              这里写项目简介。可以是出版物、影像、装置、写作、策展项目的概述，
+              用简短的一段文字介绍项目的背景、方法、主题或展示方式。
+            </p>
 
-a{ color:inherit; text-decoration:none; }
-a:hover{ text-decoration: underline; text-underline-offset: 3px; }
-::selection{ background: rgba(255,255,255,.14); }
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80"
+                alt="Project A cover or documentation"
+              />
+            </div>
+          </div>
+        </article>
 
-/* 顶部信息 */
-.brand{
-  font-size: 12px;
-  letter-spacing: var(--caps);
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 18px;
-}
+        <!-- Project B -->
+        <article class="project" id="project-b">
+          <div class="project-no">02.</div>
 
-.name{
-  margin: 0 0 10px;
-  font-size: 26px;     /* 标题不需要太大 */
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-}
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project B</h2>
+                <div class="meta">
+                  <p>Video installation</p>
+                  <p>Single-channel video</p>
+                  <p>2024</p>
+                </div>
+              </div>
 
-/* 联系方式小块 */
-.contact{
-  display:flex;
-  flex-direction:column;
-  gap: 6px;
-  margin-bottom: calc(var(--blockGap)+10px);
-  color: var(--muted);
-  font-size: 12.5px;
-}
+              <div class="spec">
+                <p>Exhibition</p>
+                <p>12'34"</p>
+                <p>HD video</p>
+                <p>Loop</p>
+              </div>
+            </div>
 
-/* 板块：不画线，只留间距 */
-/* Make section spacing clearer */
-.block{
-  margin-top: var(--blockGap);
-  padding-top: 0;
-}
+            <p class="project-text">
+              这里继续写第二个项目的介绍。为了接近你参考图里的感觉，
+              每个项目尽量保持信息清晰、排版工整、文字不过度拥挤。
+            </p>
 
-.block + .block{
-  margin-top: calc(var(--blockGap) + 8px); /* 模块之间更明显 */
-}
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+                alt="Project B documentation"
+              />
+            </div>
+          </div>
+        </article>
 
-.h2{
-  margin: 0 0 14px;
-}
+        <!-- Project C -->
+        <article class="project" id="project-c">
+          <div class="project-no">03.</div>
 
-.block .h2{
-  margin-top: 6px;  /* 标题与上一模块内容之间再拉开一点点 */
-}
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project C</h2>
+                <div class="meta">
+                  <p>Writing / Essay</p>
+                  <p>Online publication</p>
+                  <p>2024</p>
+                </div>
+              </div>
 
-/* 板块标题 */
-.h2{
-  margin: 0 0 12px;
-  font-size: 12px;
-  letter-spacing: var(--caps);
-  text-transform: uppercase;
-  color: var(--muted);
-}
+              <div class="spec">
+                <p>Text</p>
+                <p>Essay</p>
+                <p>Bilingual</p>
+                <p>Commissioned</p>
+              </div>
+            </div>
 
-/* 双语段落：上中文下英文 */
-.pair{
-  margin-bottom: var(--rowGap);
-}
+            <p class="project-text">
+              你可以把项目类型写得很简洁，比如 writing、film、book、installation、
+              exhibition、research、performance 等，让页面更像档案索引。
+            </p>
 
-.zh{
-  font-family: "Songti SC","STSong","SimSun","Noto Serif CJK SC","Source Han Serif SC",serif;
-  font-size: var(--zhSize);
-  line-height: var(--lh);
-  color: var(--text);
-}
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
+                alt="Project C related image"
+              />
+            </div>
+          </div>
+        </article>
 
-.en{
-  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: var(--enSize);
-  line-height: 1.6;
-  color: var(--muted);
-  margin-top: 6px;
-}
+        <!-- Project D -->
+        <article class="project" id="project-d">
+          <div class="project-no">04.</div>
 
-/* 列表/时间线（左年右内容） */
-.timeline{
-  display:flex;
-  flex-direction:column;
-  gap: 18px;
-}
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project D</h2>
+                <div class="meta">
+                  <p>Research project</p>
+                  <p>Archive / Fieldwork</p>
+                  <p>2023</p>
+                </div>
+              </div>
 
-.item{
-  display:grid;
-  grid-template-columns: 92px 1fr;
-  column-gap: 16px;
-  align-items:start;
-}
+              <div class="spec">
+                <p>Research</p>
+                <p>Ongoing</p>
+                <p>Archive-based</p>
+                <p>Text + Image</p>
+              </div>
+            </div>
 
-.time{
-  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: .02em;
-  padding-top: 2px;
-}
+            <p class="project-text">
+              这一类版式很适合艺术家、设计师、研究者、写作者和策展人，
+              因为它不会过度强调视觉装饰，而是突出内容本身。
+            </p>
 
-.body{
-  min-width:0;
-}
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                alt="Project D archive image"
+              />
+            </div>
+          </div>
+        </article>
 
-.title{
-  font-family: "Songti SC","STSong","SimSun","Noto Serif CJK SC","Source Han Serif SC",serif;
-  font-size: var(--zhSize);
-  line-height: 1.5;
-  margin-bottom: 6px;
-}
+        <!-- Project E -->
+        <article class="project" id="project-e">
+          <div class="project-no">05.</div>
 
-/* Selected Work 卡片：也保持左栏宽度一致 */
-.workList{
-  display:flex;
-  flex-direction:column;
-  gap: 18px;
-}
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project E</h2>
+                <div class="meta">
+                  <p>Exhibition making</p>
+                  <p>Curatorial practice</p>
+                  <p>2023</p>
+                </div>
+              </div>
 
-.work{
-  padding: 10px 0;  /* 不画线，只留呼吸 */
-}
+              <div class="spec">
+                <p>Exhibition</p>
+                <p>Group show</p>
+                <p>Spatial installation</p>
+                <p>Documentation</p>
+              </div>
+            </div>
 
-.work .title{
-  margin-bottom: 6px;
-}
+            <p class="project-text">
+              后面你也可以继续往里补更多信息，比如展览地点、合作对象、出版信息、
+              奖项或放映记录，但建议保持节制。
+            </p>
 
-.meta{
-  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 8px;
-}
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80"
+                alt="Project E exhibition view"
+              />
+            </div>
+          </div>
+        </article>
 
-/* 响应式：窄屏时别贴边 */
-@media (max-width: 640px){
-  :root{
-    --padX: 18px;
-    --padY: 22px;
-    --colW: 100%;
-    --zhSize: 13.2px;
-    --enSize: 12.2px;
-  }
+        <!-- Project F -->
+        <article class="project" id="project-f">
+          <div class="project-no">06.</div>
 
-  .item{
-    grid-template-columns: 72px 1fr;
-  }
-}
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project F</h2>
+                <div class="meta">
+                  <p>Mixed media</p>
+                  <p>Image / text / sound</p>
+                  <p>2022</p>
+                </div>
+              </div>
+
+              <div class="spec">
+                <p>Project page</p>
+                <p>Documentation</p>
+                <p>Web format</p>
+                <p>Selected works</p>
+              </div>
+            </div>
+
+            <p class="project-text">
+              这是最后一个示例项目。后续你可以根据需要继续复制 article.project
+              这个结构，增加更多项目条目。
+            </p>
+
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80"
+                alt="Project F documentation"
+              />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- 左下角小信息 -->
+      <footer class="site-footer">
+        <span id="clock">00:00:00</span>
+        <span>Your Name — Portfolio</span>
+      </footer>
+    </main>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString("en-GB", { hour12: false });
+        document.getElementById("clock").textContent = time;
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
+  </body>
+</html>
