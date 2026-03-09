@@ -3,98 +3,284 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shucen Liu — Portfolio</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <title>Your Name — Portfolio</title>
+    <meta
+      name="description"
+      content="Personal portfolio website"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="shell">
-      <div class="col">
-        <div class="brand">PORTFOLIO</div>
+    <main class="frame">
+      <!-- 左侧目录 -->
+      <aside class="index-nav">
+        <div class="index-title">Index</div>
+        <nav>
+          <a href="#info"><span>00.</span><span>Information</span></a>
+          <a href="#project-a"><span>01.</span><span>Project A</span></a>
+          <a href="#project-b"><span>02.</span><span>Project B</span></a>
+          <a href="#project-c"><span>03.</span><span>Project C</span></a>
+          <a href="#project-d"><span>04.</span><span>Project D</span></a>
+          <a href="#project-e"><span>05.</span><span>Project E</span></a>
+          <a href="#project-f"><span>06.</span><span>Project F</span></a>
+        </nav>
+      </aside>
 
-        <h1 class="name">刘书岑 / Shucen Liu</h1>
+      <!-- 右上角简介 -->
+      <section class="intro" id="info">
+        <p class="intro-text">
+          这里可以放你的个人简介、创作陈述或一句比较简洁的自我介绍。
+          建议控制在 4–6 行，保持留白和克制的节奏。你也可以写成中英双语。
+        </p>
 
-        <div class="contact">
-          <div>长沙 / 远程 · Changsha / Remote</div>
-          <div><a href="mailto:liushucen991214@gmail.com">liushucen991214@gmail.com</a></div>
-          <div><a href="/cv.pdf">CV.pdf</a></div>
+        <div class="profile">
+          <div class="profile-title">Profile</div>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
+      </section>
 
-        <!-- Statement -->
-        <section class="block">
-          <h2 class="h2">Statement</h2>
+      <!-- 项目列表 -->
+      <section class="projects">
+        <!-- Project A -->
+        <article class="project" id="project-a">
+          <div class="project-no">01.</div>
 
-          <div class="pair">
-            <div class="zh">
-              1999年12月生，现暂居湖南长沙，建筑及设计背景，关注个体在熟悉空间中的陌生感，以及在陌生空间中构建的在地感。
-            </div>
-            <div class="en">
-              Born in Dec 1999, currently based in Changsha, China, with an architecture & design background.
-            </div>
-          </div>
-
-          <div class="pair">
-            <div class="zh">
-              对「人在变动与迁移中如何安放自己」进行追问，并用创作与设计回应。实践以影像、诗歌、策展、服务设计、集体创作等多种形式展开。
-            </div>
-            <div class="en">
-              My work asks: “How do we place ourselves amid movement and migration?” I respond through moving image, poetry, curatorial practice, service design, and collective making.
-            </div>
-          </div>
-
-          <div class="pair">
-            <div class="zh">可承接业务：设计研究 / 策展 / 影像创作 / 书籍设计 …</div>
-            <div class="en">Available for: design research / curating / moving image / book design …</div>
-          </div>
-        </section>
-
-        <!-- Experience -->
-        <section class="block">
-          <h2 class="h2">Experience</h2>
-
-          <div class="timeline">
-            <div class="item">
-              <div class="time">2025</div>
-              <div class="body">
-                <div class="title">Spacebenders Collective — 发起/组织</div>
-                <div class="pair">
-                  <div class="zh">策展 / 影像 / 城市感知</div>
-                  <div class="en">Co-founder / Organizer · Curating / Moving Image / City Perception</div>
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project A</h2>
+                <div class="meta">
+                  <p>Independent publication</p>
+                  <p>Chinese / English</p>
+                  <p>2025</p>
                 </div>
+              </div>
+
+              <div class="spec">
+                <p>Book / Publication</p>
+                <p>210 × 297 mm</p>
+                <p>96 pages</p>
+                <p>Softcover</p>
               </div>
             </div>
 
-            <div class="item">
-              <div class="time">2024</div>
-              <div class="body">
-                <div class="title">服务设计项目实践</div>
-                <div class="pair">
-                  <div class="zh">叙事工具 / 社群场景</div>
-                  <div class="en">Service Design Practice · Narrative Toolkit / Community Context</div>
-                </div>
-              </div>
+            <p class="project-text">
+              这里写项目简介。可以是出版物、影像、装置、写作、策展项目的概述，
+              用简短的一段文字介绍项目的背景、方法、主题或展示方式。
+            </p>
+
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80"
+                alt="Project A cover or documentation"
+              />
             </div>
           </div>
-        </section>
+        </article>
 
-        <!-- Selected Work -->
-        <section class="block">
-          <h2 class="h2">Selected Work</h2>
+        <!-- Project B -->
+        <article class="project" id="project-b">
+          <div class="project-no">02.</div>
 
-          <div class="workList">
-            <a class="work" href="/projects/project-1.html">
-              <div class="title">叙室：支持过渡期青年叙事实践的产品服务系统</div>
-              <div class="en">Narrative Room: A Product–Service System for Transitional Youth</div>
-              <div class="meta">2024.12–2026.02 · Service Design / Narrative Toolkit</div>
-            </a>
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project B</h2>
+                <div class="meta">
+                  <p>Video installation</p>
+                  <p>Single-channel video</p>
+                  <p>2024</p>
+                </div>
+              </div>
 
-            <a class="work" href="/projects/project-2.html">
-              <div class="title">Where Within：从城市公共空间即兴行动到多媒体展览</div>
-              <div class="en">Where Within: From Urban Improvisations to a Multimedia Exhibition</div>
-              <div class="meta">2025.03–2025.07 · Curating / Moving Image / City Perception</div>
-            </a>
+              <div class="spec">
+                <p>Exhibition</p>
+                <p>12'34"</p>
+                <p>HD video</p>
+                <p>Loop</p>
+              </div>
+            </div>
+
+            <p class="project-text">
+              这里继续写第二个项目的介绍。为了接近你参考图里的感觉，
+              每个项目尽量保持信息清晰、排版工整、文字不过度拥挤。
+            </p>
+
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+                alt="Project B documentation"
+              />
+            </div>
           </div>
-        </section>
-      </div>
-    </div>
+        </article>
+
+        <!-- Project C -->
+        <article class="project" id="project-c">
+          <div class="project-no">03.</div>
+
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project C</h2>
+                <div class="meta">
+                  <p>Writing / Essay</p>
+                  <p>Online publication</p>
+                  <p>2024</p>
+                </div>
+              </div>
+
+              <div class="spec">
+                <p>Text</p>
+                <p>Essay</p>
+                <p>Bilingual</p>
+                <p>Commissioned</p>
+              </div>
+            </div>
+
+            <p class="project-text">
+              你可以把项目类型写得很简洁，比如 writing、film、book、installation、
+              exhibition、research、performance 等，让页面更像档案索引。
+            </p>
+
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
+                alt="Project C related image"
+              />
+            </div>
+          </div>
+        </article>
+
+        <!-- Project D -->
+        <article class="project" id="project-d">
+          <div class="project-no">04.</div>
+
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project D</h2>
+                <div class="meta">
+                  <p>Research project</p>
+                  <p>Archive / Fieldwork</p>
+                  <p>2023</p>
+                </div>
+              </div>
+
+              <div class="spec">
+                <p>Research</p>
+                <p>Ongoing</p>
+                <p>Archive-based</p>
+                <p>Text + Image</p>
+              </div>
+            </div>
+
+            <p class="project-text">
+              这一类版式很适合艺术家、设计师、研究者、写作者和策展人，
+              因为它不会过度强调视觉装饰，而是突出内容本身。
+            </p>
+
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                alt="Project D archive image"
+              />
+            </div>
+          </div>
+        </article>
+
+        <!-- Project E -->
+        <article class="project" id="project-e">
+          <div class="project-no">05.</div>
+
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project E</h2>
+                <div class="meta">
+                  <p>Exhibition making</p>
+                  <p>Curatorial practice</p>
+                  <p>2023</p>
+                </div>
+              </div>
+
+              <div class="spec">
+                <p>Exhibition</p>
+                <p>Group show</p>
+                <p>Spatial installation</p>
+                <p>Documentation</p>
+              </div>
+            </div>
+
+            <p class="project-text">
+              后面你也可以继续往里补更多信息，比如展览地点、合作对象、出版信息、
+              奖项或放映记录，但建议保持节制。
+            </p>
+
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80"
+                alt="Project E exhibition view"
+              />
+            </div>
+          </div>
+        </article>
+
+        <!-- Project F -->
+        <article class="project" id="project-f">
+          <div class="project-no">06.</div>
+
+          <div class="project-main">
+            <div class="project-head">
+              <div>
+                <h2>Project F</h2>
+                <div class="meta">
+                  <p>Mixed media</p>
+                  <p>Image / text / sound</p>
+                  <p>2022</p>
+                </div>
+              </div>
+
+              <div class="spec">
+                <p>Project page</p>
+                <p>Documentation</p>
+                <p>Web format</p>
+                <p>Selected works</p>
+              </div>
+            </div>
+
+            <p class="project-text">
+              这是最后一个示例项目。后续你可以根据需要继续复制 article.project
+              这个结构，增加更多项目条目。
+            </p>
+
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80"
+                alt="Project F documentation"
+              />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- 左下角小信息 -->
+      <footer class="site-footer">
+        <span id="clock">00:00:00</span>
+        <span>Your Name — Portfolio</span>
+      </footer>
+    </main>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString("en-GB", { hour12: false });
+        document.getElementById("clock").textContent = time;
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
   </body>
 </html>
