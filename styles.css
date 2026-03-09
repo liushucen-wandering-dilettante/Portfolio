@@ -214,6 +214,9 @@ max-width: 772px;
   opacity: 0.6;
 }
 }
+
+
+
 /* 响应式 */
 @media (max-width: 900px) {
   .layout {
@@ -335,4 +338,121 @@ max-width: 772px;
 
 .gallery-btn:hover {
     color: rgba(255, 255, 255, 0.6); /* 悬停在箭头本身时变淡提示 */
+}
+
+/* =========================
+   Detail page
+========================= */
+
+.project-detail-page {
+  background: #ffffff;
+  color: #111111;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.detail-layout {
+  width: 100%;
+  max-width: 1220px;
+  margin-left: auto;
+  padding: 24px 24px 80px 24px;
+}
+
+.detail-header {
+  margin-bottom: 48px;
+}
+
+.back-link,
+.back-link:visited,
+.back-link:active {
+  color: #8a8a8a;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  opacity: 0.6;
+}
+
+.detail-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.detail-intro {
+  max-width: 620px;
+}
+
+.detail-intro p + p {
+  margin-top: 18px;
+}
+
+.detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.meta-group p {
+  margin-bottom: 2px;
+}
+
+.meta-title {
+  margin-bottom: 10px;
+}
+
+.detail-image-block {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.detail-image-block img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.detail-text-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.detail-column {
+  max-width: 520px;
+}
+
+.detail-column p + p {
+  margin-top: 18px;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .detail-layout {
+    padding: 20px 20px 60px 20px;
+  }
+
+  .detail-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+  }
+
+  .detail-intro,
+  .detail-column {
+    max-width: 100%;
+  }
+
+  .detail-text-columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .detail-image-block {
+    margin-bottom: 36px;
+  }
 }
