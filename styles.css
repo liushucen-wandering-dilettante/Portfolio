@@ -1,290 +1,270 @@
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Name — Portfolio</title>
-    <meta name="description" content="Personal portfolio website" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="site-shell">
-      <!-- 左侧固定目录 -->
-      <aside class="sidebar">
-        <div class="sidebar-inner">
-          <div class="index-title">Index</div>
-          <nav class="index-nav">
-            <a href="#information"><span>00.</span><span>Information</span></a>
-            <a href="#project-01"><span>01.</span><span>Project A</span></a>
-            <a href="#project-02"><span>02.</span><span>Project B</span></a>
-            <a href="#project-03"><span>03.</span><span>Project C</span></a>
-            <a href="#project-04"><span>04.</span><span>Project D</span></a>
-            <a href="#project-05"><span>05.</span><span>Project E</span></a>
-            <a href="#project-06"><span>06.</span><span>Project F</span></a>
-          </nav>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-          <div class="sidebar-footer">
-            <span id="clock">00:00:00</span>
-            <span>Cargo Demo Template</span>
-          </div>
-        </div>
-      </aside>
+html {
+  scroll-behavior: smooth;
+}
 
-      <!-- 右侧滚动内容 -->
-      <main class="content">
-        <section class="intro-block" id="information">
-          <div class="intro-text">
-            <p>
-              这里可以放你的个人简介、创作陈述或简短的自我介绍。建议保持简洁，
-              让页面有足够的留白。也可以写成中英双语，上中文下英文。
-            </p>
-            <p>
-              This area can hold your short bio, artist statement, or an
-              introduction to your practice. Keep it light and spacious.
-            </p>
-          </div>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #dcdcdc;
+  color: #222;
+  line-height: 1.2;
+  padding: 20px;
+}
 
-          <div class="profile-block">
-            <div class="profile-title">Profile</div>
-            <a href="mailto:hello@example.com">hello@example.com</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </div>
-        </section>
+/* 外层大框 */
+.site-shell {
+  min-height: calc(100vh - 40px);
+  background: #e8e8e8;
+  border: 1px solid #cfcfcf;
+  border-radius: 18px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
 
-        <section class="project" id="project-01">
-          <div class="project-grid">
-            <div class="project-no">01.</div>
+/* 左列 */
+.sidebar {
+  position: sticky;
+  top: 20px;
+  height: calc(100vh - 40px);
+  border-right: 0;
+}
 
-            <div class="project-body">
-              <div class="project-meta-row">
-                <div class="project-meta-left">
-                  <h2>Project A</h2>
-                  <p>NAi Publishers</p>
-                  <p>Dutch / English</p>
-                  <p>1999</p>
-                </div>
+.sidebar-inner {
+  height: 100%;
+  padding: 18px 20px 18px 18px;
+  display: flex;
+  flex-direction: column;
+}
 
-                <div class="project-meta-right">
-                  <p>Publication</p>
-                  <p>ISBN: 90–5662–115–7</p>
-                  <p>235 × 324mm</p>
-                  <p>160 pp. Softcover</p>
-                </div>
-              </div>
+.index-title {
+  font-size: 14px;
+  margin-bottom: 18px;
+  padding-left: 52px;
+}
 
-              <div class="project-text">
-                <p>
-                  这里写项目简介。你可以放出版物、影像、写作、展览或研究项目的简短说明。
-                  风格上尽量克制，不要把文字塞太满，这样更接近参考图的节奏。
-                </p>
-              </div>
+.index-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
-              <div class="project-image black-frame">
-                <img
-                  src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80"
-                  alt="Project A"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+.index-nav a {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: start;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
 
-        <section class="project" id="project-02">
-          <div class="project-grid">
-            <div class="project-no">02.</div>
+.index-nav a:hover {
+  opacity: 0.55;
+}
 
-            <div class="project-body">
-              <div class="project-meta-row">
-                <div class="project-meta-left">
-                  <h2>Project B</h2>
-                  <p>Video installation</p>
-                  <p>Single-channel</p>
-                  <p>2024</p>
-                </div>
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  padding-top: 24px;
+}
 
-                <div class="project-meta-right">
-                  <p>Exhibition</p>
-                  <p>HD Video</p>
-                  <p>12'34"</p>
-                  <p>Loop</p>
-                </div>
-              </div>
+/* 右侧滚动区 */
+.content {
+  padding: 18px 22px 40px 0;
+}
 
-              <div class="project-text">
-                <p>
-                  第二个项目也可以沿用同样结构。左边只放编号，右边放标题、媒介、年份、简介和图片。
-                </p>
-              </div>
+/* 顶部介绍 */
+.intro-block {
+  min-height: 220px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 48px;
+  padding: 0 18px 60px 0;
+}
 
-              <div class="project-image">
-                <img
-                  src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1200&q=80"
-                  alt="Project B"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+.intro-text {
+  width: 420px;
+  font-size: 14px;
+}
 
-        <section class="project" id="project-03">
-          <div class="project-grid">
-            <div class="project-no">03.</div>
+.intro-text p + p {
+  margin-top: 12px;
+}
 
-            <div class="project-body">
-              <div class="project-meta-row">
-                <div class="project-meta-left">
-                  <h2>Project C</h2>
-                  <p>Writing / Essay</p>
-                  <p>Online publication</p>
-                  <p>2024</p>
-                </div>
+.profile-block {
+  width: 180px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-                <div class="project-meta-right">
-                  <p>Text</p>
-                  <p>Bilingual</p>
-                  <p>Commissioned</p>
-                  <p>Digital format</p>
-                </div>
-              </div>
+.profile-title {
+  color: #222;
+  margin-bottom: 6px;
+}
 
-              <div class="project-text">
-                <p>
-                  如果你是申请艺术、影像、写作、策展相关岗位，这种版式会显得很冷静，也比较专业。
-                </p>
-              </div>
+.profile-block a {
+  text-decoration: none;
+  color: #8f8f8f;
+}
 
-              <div class="project-image">
-                <img
-                  src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
-                  alt="Project C"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+.profile-block a:hover {
+  color: #222;
+}
 
-        <section class="project" id="project-04">
-          <div class="project-grid">
-            <div class="project-no">04.</div>
+/* 项目 */
+.project {
+  padding: 40px 18px 120px 0;
+}
 
-            <div class="project-body">
-              <div class="project-meta-row">
-                <div class="project-meta-left">
-                  <h2>Project D</h2>
-                  <p>Research project</p>
-                  <p>Archive / Fieldwork</p>
-                  <p>2023</p>
-                </div>
+.project-grid {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  column-gap: 66px;
+  align-items: start;
+}
 
-                <div class="project-meta-right">
-                  <p>Research</p>
-                  <p>Ongoing</p>
-                  <p>Text + Image</p>
-                  <p>Archive-based</p>
-                </div>
-              </div>
+.project-no {
+  font-size: 14px;
+  padding-top: 6px;
+}
 
-              <div class="project-text">
-                <p>
-                  你后面只要复制这个 section.project 结构，就可以继续加更多项目。
-                </p>
-              </div>
+.project-body {
+  max-width: 640px;
+}
 
-              <div class="project-image">
-                <img
-                  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
-                  alt="Project D"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+.project-meta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 18px;
+}
 
-        <section class="project" id="project-05">
-          <div class="project-grid">
-            <div class="project-no">05.</div>
+.project-meta-left h2 {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 14px;
+}
 
-            <div class="project-body">
-              <div class="project-meta-row">
-                <div class="project-meta-left">
-                  <h2>Project E</h2>
-                  <p>Exhibition making</p>
-                  <p>Curatorial practice</p>
-                  <p>2023</p>
-                </div>
+.project-meta-left p,
+.project-meta-right p {
+  font-size: 14px;
+  color: #8f8f8f;
+  margin-bottom: 2px;
+}
 
-                <div class="project-meta-right">
-                  <p>Exhibition</p>
-                  <p>Group show</p>
-                  <p>Documentation</p>
-                  <p>Installation</p>
-                </div>
-              </div>
+.project-text {
+  max-width: 560px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
 
-              <div class="project-text">
-                <p>
-                  右边内容区可以单独滚动，左边目录始终可见，浏览体验会很清楚。
-                </p>
-              </div>
+.project-image {
+  width: 100%;
+}
 
-              <div class="project-image">
-                <img
-                  src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80"
-                  alt="Project E"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+.black-frame {
+  background: #000;
+  padding: 26px;
+}
 
-        <section class="project" id="project-06">
-          <div class="project-grid">
-            <div class="project-no">06.</div>
+.project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
-            <div class="project-body">
-              <div class="project-meta-row">
-                <div class="project-meta-left">
-                  <h2>Project F</h2>
-                  <p>Mixed media</p>
-                  <p>Image / text / sound</p>
-                  <p>2022</p>
-                </div>
+/* 响应式 */
+@media (max-width: 1100px) {
+  .site-shell {
+    grid-template-columns: 1fr;
+  }
 
-                <div class="project-meta-right">
-                  <p>Selected works</p>
-                  <p>Web format</p>
-                  <p>Documentation</p>
-                  <p>Archive</p>
-                </div>
-              </div>
+  .sidebar {
+    position: static;
+    height: auto;
+    border-bottom: 1px solid #d4d4d4;
+  }
 
-              <div class="project-text">
-                <p>
-                  最后一个项目可以是 older work、archive、selected writing 或 exhibition history。
-                </p>
-              </div>
+  .sidebar-inner {
+    height: auto;
+    padding: 18px;
+  }
 
-              <div class="project-image">
-                <img
-                  src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80"
-                  alt="Project F"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+  .index-title {
+    padding-left: 0;
+  }
 
-    <script>
-      function updateClock() {
-        const now = new Date();
-        const time = now.toLocaleTimeString("en-GB", { hour12: false });
-        document.getElementById("clock").textContent = time;
-      }
+  .sidebar-footer {
+    margin-top: 24px;
+  }
 
-      updateClock();
-      setInterval(updateClock, 1000);
-    </script>
-  </body>
-</html>
+  .content {
+    padding: 18px;
+  }
+
+  .intro-block {
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 0 40px 0;
+  }
+
+  .project {
+    padding: 30px 0 80px 0;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 12px;
+  }
+
+  .site-shell {
+    min-height: calc(100vh - 24px);
+    border-radius: 14px;
+  }
+
+  .index-nav a,
+  .index-title,
+  .sidebar-footer,
+  .intro-text,
+  .profile-block,
+  .project-no,
+  .project-meta-left h2,
+  .project-meta-left p,
+  .project-meta-right p,
+  .project-text {
+    font-size: 13px;
+  }
+
+  .intro-text,
+  .project-body {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-meta-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .black-frame {
+    padding: 14px;
+  }
+}
