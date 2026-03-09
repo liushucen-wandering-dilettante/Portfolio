@@ -15,11 +15,6 @@ body {
   line-height: 1.3;
   font-size: 14px;
 }
-.intro-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
 
 /* 整体两列 */
 .layout {
@@ -101,7 +96,7 @@ body {
 }
 
 .intro-text {
-  max-width: 420px;
+  max-width: 700px;
 }
 
 .intro-text p + p {
@@ -246,7 +241,6 @@ max-width: 772px;
     max-width: 100%;
     margin-left: 0;
   }
-}
 
   .project-row {
     grid-template-columns: 1fr;
