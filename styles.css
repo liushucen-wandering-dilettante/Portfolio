@@ -456,3 +456,48 @@ max-width: 772px;
     margin-bottom: 36px;
   }
 }
+
+.detail-video-block {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+.video-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.video-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.08);
+  transition: background 0.25s ease;
+}
+
+.video-thumb:hover .video-overlay {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.video-button {
+  display: inline-block;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.2;
+  background: rgba(0, 0, 0, 0.18);
+}
