@@ -85,24 +85,45 @@ body {
 
 /* 顶部个人简介 */
 .intro {
-width: 100%;
-max-width: 700px;
-  display: grid;
-  grid-template-columns: 360px 160px;
-  justify-content: end;
-  gap: 36px;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
   padding-bottom: 120px;
-margin-left: auto;
+}
+
+.intro-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.intro-text {
+  max-width: 420px;
 }
 
 .intro-text p + p {
   margin-top: 12px;
 }
 
+.intro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 18px;
+  max-width: 700px;
+}
+
+.intro-tags span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .profile {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 4px;
+  margin-top: 64px;
 }
 
 .profile-title {
