@@ -203,62 +203,46 @@ max-width: 772px;
   width: 100%;
   height: auto;
 }
-/* --- 替换开始：左右按钮简约样式 --- */
+/* ==============================
+   修改后的极简 Gallery 按钮样式
+   ============================== */
+
 .gallery-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
+  border: none;
 
-  /* 核心：创建半透明白色圆圈 */
-  width: 44px;  /* 按钮宽度 */
-  height: 44px; /* 按钮高度，确保是正方形 */
-  border-radius: 50%; /* 关键：确保是圆形 */
-  border: 1px solid rgba(255, 255, 255, 0.4); /* 半透明白色边框 */
-
-  /* 核心：半透明背景 */
-  background: rgba(0, 0, 0, 0.15); /* 极淡的半透明黑色背景，增加在白色区域的对比度 */
-
-  /* 核心：白色简约图标 */
-  color: rgba(255, 255, 255, 0.9); /* 图标颜色设为白色，几乎不透明 */
-  font-size: 20px; /* 图标（如果是文本）大小 */
-  line-height: 1; /* 确保居中 */
-  font-weight: 300; /* 如果使用字体，让它更纤细，符合简约风 */
-
-  /* 其他 */
-  font-family: inherit; /* 继承父级字体 */
+  /* ✅ 1. 移除背景和内边距，实现无圆圈效果 */
+  background: none; 
+  padding: 0; 
+  
+  /* ✅ 2. 调整箭头的颜色和清晰度 */
+  color: #fff; /* 箭头设为白色 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* 添加文字投影，确保在白色/浅色图片上也能看清 */
+  
+  /* ✅ 3. 增大箭头大小和粗细，模仿参考图 */
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 24px; /* 增加字体大小，让箭头更醒目 */
+  font-weight: 700; /* 增加字体粗细 */
+  line-height: 1;
   cursor: pointer;
-  display: flex; /* 使用 flex 让内容在圆圈内完美居中 */
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease; /* 增加过渡动画，提升交互感 */
 }
 
-/* 调整图标（如果你的图标是文字或特殊符号） */
-.gallery-btn.prev::before {
-  content: "‹"; /* 使用更纤细的‹ */
-}
-
-.gallery-btn.next::before {
-  content: "›"; /* 使用更纤细的› */
-}
-
-/* 悬停效果：参考图中的圆圈变得更亮、更清晰 */
 .gallery-btn:hover {
-  border-color: rgba(255, 255, 255, 1); /* 边框变为不透明白色 */
-  background-color: rgba(0, 0, 0, 0.3); /* 背景稍微加深 */
-  color: #ffffff; /* 图标变为全白 */
+  /* 保持悬停效果，或者调整为 opacity: 0.8; 增加点对比 */
+  opacity: 0.7; 
 }
 
-/* 按钮位置微调，确保它们在图片内边缘 */
+/* ✅ 4. 稍微增加按钮到图片边缘的距离 */
 .gallery-btn.prev {
-  left: 20px; /* 增加一点边距 */
+  left: 20px; /* 比原代码 10px 稍微宽一点，看起来更舒服 */
 }
 
 .gallery-btn.next {
-  right: 20px;
+  right: 20px; /* 比原代码 10px 稍微宽一点 */
 }
-/* --- 替换结束 --- */
 
 /* 响应式 */
 @media (max-width: 900px) {
