@@ -71,15 +71,16 @@ body {
 /* 让内容整体靠右 */
 .content-inner {
   width: min(520px, 100%);
+  max-width:900px
   margin-left: auto;
 }
 
 /* 顶部个人简介 */
 .intro {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) 160px;
+  grid-template-columns: 360px 160px;
   justify-content: end;
-  gap: 48px;
+  gap: 36px;
   padding-bottom: 120px;
 }
 
@@ -136,13 +137,15 @@ body {
 
 .project-body {
   width: 100%;
+  max-width: 700px;
 }
 
 .project-meta {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  grid-template-columns: minmax(0,1fr)220px;
+  gap: 24px;
   margin-bottom: 18px;
+  align-items:start;
 }
 
 .meta-left h2 {
@@ -157,7 +160,7 @@ body {
 }
 
 .project-text {
-  max-width: 520px;
+  max-width: 420px;
   margin-bottom: 20px;
 }
 
