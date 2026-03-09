@@ -1,4 +1,28 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
+/* --- 统一对齐线与宽度 --- */
+
+/* 定义一个统一的文字与图片最大宽度 */
+:root {
+    --content-width: 700px; /* 这里的数值可以根据你的喜好调整，建议 700-800px */
+    --indent-width: 120px;  /* 编号 01. 到文字起点的间距 */
+}
+
+.section-intro, 
+.project-meta-grid, 
+.project-description,
+.project-gallery,
+.project-image {
+    width: 100%;
+    max-width: var(--content-width); /* 核心：图片和文字组团宽度一致 */
+    margin-left: var(--indent-width);
+}
+
+/* --- 侧边栏宽度微调 --- */
+.layout {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* 增加左侧留白感 */
+}
+
 body {
     font-family: "IBM Plex Mono", monospace;
     background: #fff;
