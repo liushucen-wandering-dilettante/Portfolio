@@ -63,33 +63,33 @@ body {
   gap: 16px;
 }
 
-/* 右侧总区域：始终贴右 */
+/* 右侧内容区 */
 .content {
-  padding: 24px 24px 80px 0;
+  padding: 24px 0 80px 0;
 }
 
-/* 右列总容器：控制整块靠右 */
+/* 让内容整体靠右 */
 .content-inner {
   width: 100%;
-  max-width: 980px;
+  max-width: 820px;
   margin-left: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-/* 顶部简介：和项目行同宽 */
+/* 顶部个人简介 */
 .intro {
   width: 100%;
-  max-width: 820px;
-  padding-bottom: 140px;
+  max-width: 772px;
+  margin-left: auto;
+  padding-bottom: 120px;
 }
 
-/* 让个人描述正文和项目正文左边缘一致 */
 .intro-main {
   width: 100%;
   max-width: 700px;
-  margin-left: 120px; /* 72 + 48 */
+  margin-left: calc(72px + 48px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -99,12 +99,21 @@ body {
   max-width: 700px;
 }
 
+.intro-text p + p {
+  margin-top: 12px;
+}
+
 .intro-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 28px;
   margin-top: 18px;
-  color: #777777;
+  max-width: 700px;
+}
+
+.intro-tags span {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .profile {
@@ -112,7 +121,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
-  margin-top: 56px;
+  margin-top: 64px;
 }
 
 .profile-title {
@@ -128,121 +137,71 @@ body {
   opacity: 0.45;
 }
 
-/* 每个项目整体贴右 */
+/* 项目区 */
 .project {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 140px;
+width: 100%;
+padding-bottom: 120px;
+display: flex;
+justify-content: flex-end;
 }
-
-/* 项目总宽度：编号列 + 正文列 */
-.project-row {
+.project-body,
+.project-image,
+.project-gallery {
   width: 100%;
-  max-width: 820px;
+}
+.project-image img,
+.gallery-track img {
+  display: block;
+  width: 100%;
+  height: auto;
+  display:block;
+}
+.project-row {
+width: 100%;
+max-width: 772px;
   display: grid;
   grid-template-columns: 72px 1fr;
   column-gap: 48px;
   align-items: start;
 }
 
-/* 项目正文列 */
+.project-no {
+  padding-top: 2px;
+}
+
 .project-body {
   width: 100%;
   max-width: 700px;
 }
 
-/* 标题信息区 */
 .project-meta {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 210px;
+  grid-template-columns: minmax(0, 1fr) 220px;
   gap: 24px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   align-items: start;
 }
 
 .meta-left h2 {
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .meta-left p,
 .meta-right p {
   margin-bottom: 2px;
-  color: #777777;
 }
 
-/* 正文宽度 */
 .project-text {
   max-width: 700px;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
-/* 图片容器宽度 = 正文列宽度 */
-.project-image,
-.project-gallery {
-  width: 100%;
-  max-width: 700px;
-}
-
-/* 单图 */
 .project-image img {
   display: block;
   width: 100%;
   height: auto;
-}
-
-/* 多图滑动 */
-.project-gallery {
-  position: relative;
-}
-
-.gallery-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-
-.gallery-track::-webkit-scrollbar {
-  display: none;
-}
-
-.gallery-track img {
-  flex: 0 0 100%;
-  width: 100%;
-  height: auto;
-  display: block;
-  scroll-snap-align: start;
-}
-
-.gallery-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  border: none;
-  background: rgba(255, 255, 255, 0.85);
-  color: #111;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
-  line-height: 1;
-  padding: 8px 10px;
-  cursor: pointer;
-}
-
-.gallery-btn:hover {
-  opacity: 0.6;
-}
-
-.gallery-btn.prev {
-  left: 10px;
-}
-
-.gallery-btn.next {
-  right: 10px;
 }
 
 /* 响应式 */
@@ -270,13 +229,12 @@ body {
   }
 
   .content-inner {
-    max-width: 100%;
-    align-items: stretch;
+    width: 100%;
   }
 
   .intro {
     max-width: 100%;
-    padding-bottom: 80px;
+    padding-left: 0;
   }
 
   .intro-main {
@@ -284,25 +242,70 @@ body {
     margin-left: 0;
   }
 
-  .project {
-    padding-bottom: 80px;
-  }
-
   .project-row {
-    max-width: 100%;
     grid-template-columns: 1fr;
     row-gap: 16px;
-  }
-
-  .project-body,
-  .project-text,
-  .project-image,
-  .project-gallery {
-    max-width: 100%;
   }
 
   .project-meta {
     grid-template-columns: 1fr;
     gap: 18px;
   }
+
+  .project {
+    padding-bottom: 80px;
+  }
+}
+.project-gallery {
+  position: relative;
+  width: 100%;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  scroll-snap-align: start;
+}
+
+/* 左右按钮 */
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.gallery-btn:hover {
+  opacity: 0.6;
+}
+
+.gallery-btn.prev {
+  left: 10px;
+}
+
+.gallery-btn.next {
+  right: 10px;
 }
