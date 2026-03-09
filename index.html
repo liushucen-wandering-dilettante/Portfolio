@@ -228,5 +228,37 @@ The results were later curated into a multimedia exhibition at 674FM, an undergr
       updateClock();
       setInterval(updateClock, 1000);
     </script>
+    <script>
+  function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString("en-GB", { hour12: false });
+    document.getElementById("clock").textContent = time;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  const galleries = document.querySelectorAll(".project-gallery");
+
+  galleries.forEach((gallery) => {
+    const track = gallery.querySelector(".gallery-track");
+    const prevBtn = gallery.querySelector(".prev");
+    const nextBtn = gallery.querySelector(".next");
+
+    prevBtn.addEventListener("click", () => {
+      track.scrollBy({
+        left: -track.clientWidth,
+        behavior: "smooth"
+      });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      track.scrollBy({
+        left: track.clientWidth,
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
   </body>
 </html>
