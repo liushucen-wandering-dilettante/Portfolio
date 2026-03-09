@@ -1,185 +1,308 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-/* --- 统一对齐线与宽度 --- */
-
-/* 定义一个统一的文字与图片最大宽度 */
-:root {
-    --content-width: 700px; /* 这里的数值可以根据你的喜好调整，建议 700-800px */
-    --indent-width: 120px;  /* 编号 01. 到文字起点的间距 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.section-intro, 
-.project-meta-grid, 
-.project-description,
-.project-gallery,
-.project-image {
-    width: 100%;
-    max-width: var(--content-width); /* 核心：图片和文字组团宽度一致 */
-    margin-left: var(--indent-width);
-}
-
-/* --- 侧边栏宽度微调 --- */
-.layout {
-    display: grid;
-    grid-template-columns: 320px 1fr; /* 增加左侧留白感 */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: "IBM Plex Mono", monospace;
-    background: #fff;
-    color: #111;
-    font-size: 14px;
-    line-height: 1.4;
+  font-family: "IBM Plex Mono", monospace;
+  background: #ffffff;
+  color: #111111;
+  line-height: 1.3;
+  font-size: 14px;
 }
 
-/* 核心布局：左侧固定，右侧自由 */
+/* 整体两列 */
 .layout {
-    display: grid;
-    grid-template-columns: 320px 1fr; /* 左侧宽度调宽，增加中间留白感 */
-    min-height: 100vh;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
 }
 
-/* 左侧 Index */
+/* 左侧 index */
 .sidebar {
-    padding: 30px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
+  padding: 24px 20px 20px 24px;
 }
-.sidebar-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.index-nav { margin-top: 20px; display: flex; flex-direction: column; gap: 5px; }
-.index-nav a { 
-    display: grid; 
-    grid-template-columns: 40px 1fr; 
-    text-decoration: none; 
-    color: inherit; 
-}
-.sidebar-footer { margin-top: auto; display: flex; gap: 20px; font-size: 12px; }
 
-/* 右侧内容区 */
+.sidebar-inner {
+  position: sticky;
+  top: 24px;
+  min-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+}
+
+.index-title {
+  margin-bottom: 18px;
+}
+
+.index-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.index-nav a {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  text-decoration: none;
+  color: #111111;
+}
+
+.index-nav a:hover {
+  opacity: 0.45;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  gap: 16px;
+}
+
+/* 右侧总区域：始终贴右 */
 .content {
-    padding: 30px 60px 120px 0; /* 右侧留出呼吸空间 */
+  padding: 24px 24px 80px 0;
 }
 
-/* 所有内容的左对齐基准线 */
-.section-intro, .project-meta-grid, .project-description {
-    max-width: 800px;
-    margin-left: 100px; /* 编号 01. 之后的文字从此起始 */
+/* 右列总容器：控制整块靠右 */
+.content-inner {
+  width: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-/* 简介部分 */
-.section-intro { padding-bottom: 150px; }
-.tags-block { margin-top: 20px; opacity: 0.5; }
-.profile-block { margin-top: 60px; }
-.profile-block a { display: block; color: inherit; text-decoration: none; margin-top: 4px; }
-
-/* 项目部分 */
-.project { padding-bottom: 120px; }
-.project-header {
-    display: grid;
-    grid-template-columns: 100px 1fr; /* 100px 对应上面的 margin-left */
-    align-items: start;
-    margin-bottom: 20px;
-}
-.project-no { font-weight: 500; }
-
-.project-meta-grid {
-    display: grid;
-    grid-template-columns: 1fr 240px; /* 标题与元数据并排 */
-    gap: 40px;
-    margin-left: 0; /* 在 header 内部，无需再次 margin */
+/* 顶部简介：和项目行同宽 */
+.intro {
+  width: 100%;
+  max-width: 820px;
+  padding-bottom: 140px;
 }
 
-.meta-left h2 { font-size: 14px; font-weight: 500; margin-bottom: 5px; }
-.sub-title { opacity: 0.5; font-size: 13px; }
-.meta-right p { font-size: 13px; opacity: 0.5; margin-bottom: 2px; }
-
-.project-description {
-    margin-bottom: 40px;
-    line-height: 1.6;
+/* 让个人描述正文和项目正文左边缘一致 */
+.intro-main {
+  width: 100%;
+  max-width: 700px;
+  margin-left: 120px; /* 72 + 48 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* 图库与图片 - 宽度占满右侧可用空间 */
-.project-gallery, .project-image {
-    width: 100%;
-    position: relative;
-    margin-top: 20px;
-}
-.gallery-track {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-}
-.gallery-track::-webkit-scrollbar { display: none; }
-.gallery-track img, .project-image img {
-    flex: 0 0 100%;
-    width: 100%;
-    display: block;
+.intro-text {
+  max-width: 700px;
 }
 
-/* --- 极简悬停箭头样式 --- */
+.intro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 18px;
+  color: #777777;
+}
 
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 56px;
+}
+
+.profile-title {
+  margin-bottom: 6px;
+}
+
+.profile a {
+  color: #111111;
+  text-decoration: none;
+}
+
+.profile a:hover {
+  opacity: 0.45;
+}
+
+/* 每个项目整体贴右 */
+.project {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 140px;
+}
+
+/* 项目总宽度：编号列 + 正文列 */
+.project-row {
+  width: 100%;
+  max-width: 820px;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  column-gap: 48px;
+  align-items: start;
+}
+
+/* 项目正文列 */
+.project-body {
+  width: 100%;
+  max-width: 700px;
+}
+
+/* 标题信息区 */
+.project-meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 24px;
+  margin-bottom: 22px;
+  align-items: start;
+}
+
+.meta-left h2 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.meta-left p,
+.meta-right p {
+  margin-bottom: 2px;
+  color: #777777;
+}
+
+/* 正文宽度 */
+.project-text {
+  max-width: 700px;
+  margin-bottom: 26px;
+}
+
+/* 图片容器宽度 = 正文列宽度 */
+.project-image,
 .project-gallery {
-    position: relative;
-    width: 100%;
-    cursor: pointer; /* 提示用户此处可交互 */
+  width: 100%;
+  max-width: 700px;
+}
+
+/* 单图 */
+.project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 多图滑动 */
+.project-gallery {
+  position: relative;
+}
+
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  scroll-snap-align: start;
 }
 
 .gallery-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    
-    /* 基础样式：无背景，白色文字 */
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 32px;
-    font-weight: 300; /* 更细的线条更显高级 */
-    text-shadow: 0 0 10px rgba(0,0,0,0.3);
-    
-    /* 核心逻辑：默认隐藏 */
-    opacity: 0;
-    transition: opacity 0.3s ease; /* 平滑过渡效果 */
-    padding: 40px 20px; /* 增大点击热区 */
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1;
+  padding: 8px 10px;
+  cursor: pointer;
 }
 
-/* 当鼠标移动到图库区域时，显示按钮 */
-.project-gallery:hover .gallery-btn {
-    opacity: 1;
-}
-
-/* 再次微调：鼠标直接悬停在按钮上时稍微变淡，增加反馈 */
 .gallery-btn:hover {
-    color: rgba(255, 255, 255, 0.7);
+  opacity: 0.6;
 }
 
 .gallery-btn.prev {
-    left: 10px;
+  left: 10px;
 }
 
 .gallery-btn.next {
-    right: 10px;
+  right: 10px;
 }
 
-/* 确保图片不会遮挡按钮 */
-.gallery-track img {
-    pointer-events: none; /* 防止图片拖拽干扰滑动 */
-}
-
-/* 响应式：手机端变为单列 */
+/* 响应式 */
 @media (max-width: 900px) {
-    .layout { grid-template-columns: 1fr; }
-    .sidebar { height: auto; position: static; }
-    .content { padding: 20px; }
-    .section-intro, .project-meta-grid, .project-description { margin-left: 0; }
-    .project-header { grid-template-columns: 40px 1fr; }
-    .project-meta-grid { grid-template-columns: 1fr; gap: 20px; }
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    padding: 20px 20px 0 20px;
+  }
+
+  .sidebar-inner {
+    position: static;
+    min-height: auto;
+  }
+
+  .sidebar-footer {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .content {
+    padding: 0 20px 60px 20px;
+  }
+
+  .content-inner {
+    max-width: 100%;
+    align-items: stretch;
+  }
+
+  .intro {
+    max-width: 100%;
+    padding-bottom: 80px;
+  }
+
+  .intro-main {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .project {
+    padding-bottom: 80px;
+  }
+
+  .project-row {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .project-body,
+  .project-text,
+  .project-image,
+  .project-gallery {
+    max-width: 100%;
+  }
+
+  .project-meta {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 }
