@@ -70,7 +70,7 @@ body {
 
 /* 让内容整体靠右 */
 .content-inner {
-  width: min(680px, 100%);
+  width: min(520px, 100%);
   margin-left: auto;
 }
 
@@ -110,7 +110,19 @@ body {
 .project {
   padding-bottom: 120px;
 }
-
+.project-body,
+.project-image,
+.project-gallery {
+  width: 100%;
+  max-width: 100%;
+}
+.project-image img,
+.gallery-track img {
+  display: block;
+  width: 100%;
+  height: auto;
+  display:block;
+}
 .project-row {
   display: grid;
   grid-template-columns: 72px 1fr;
