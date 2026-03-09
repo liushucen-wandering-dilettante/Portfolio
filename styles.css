@@ -65,14 +65,17 @@ body {
 
 /* 右侧内容区 */
 .content {
-  padding: 24px 28px 80px 0;
+  display:flex;
+  justify-content:flex-end;
+  padding: 24px 0 80px 0;
 }
 
 /* 让内容整体靠右 */
 .content-inner {
-  width: min(520px, 100%);
+  width: 100%;
   max-width:900px
-  margin-left: auto;
+  margin-left: 0;
+  margin-right:0;
 }
 
 /* 顶部个人简介 */
