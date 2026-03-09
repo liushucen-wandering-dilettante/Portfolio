@@ -182,13 +182,17 @@ max-width: 772px;
   align-items: start;
 }
 
-.meta-left h2 {
+.meta-left h2 a {
+  color; #111111;
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 12px;
 }
 
-.meta-left p,
+.meta-left h2 a:hover,
+.project-links a:hover {
+  opacity: 0.45;
+  }
 .meta-right p {
   margin-bottom: 2px;
 }
@@ -197,6 +201,10 @@ max-width: 772px;
   max-width: 700px;
   margin-bottom: 20px;
 }
+
+.project-links{
+  margin-top: 6px;
+  }
 
 .project-image img {
   display: block;
