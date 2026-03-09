@@ -203,3 +203,56 @@ body {
     padding-bottom: 80px;
   }
 }
+.project-gallery {
+  position: relative;
+  width: 100%;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  scroll-snap-align: start;
+}
+
+/* 左右按钮 */
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.gallery-btn:hover {
+  opacity: 0.6;
+}
+
+.gallery-btn.prev {
+  left: 10px;
+}
+
+.gallery-btn.next {
+  right: 10px;
+}
