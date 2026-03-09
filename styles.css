@@ -97,22 +97,58 @@ body {
     display: block;
 }
 
-/* 极简箭头样式 */
+/* --- 极简悬停箭头样式 --- */
+
+.project-gallery {
+    position: relative;
+    width: 100%;
+    cursor: pointer; /* 提示用户此处可交互 */
+}
+
 .gallery-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 5;
+    z-index: 10;
+    
+    /* 基础样式：无背景，白色文字 */
     background: none;
     border: none;
-    color: #fff;
-    text-shadow: 0 0 8px rgba(0,0,0,0.4);
-    font-size: 30px;
+    color: #ffffff;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 32px;
+    font-weight: 300; /* 更细的线条更显高级 */
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    
+    /* 核心逻辑：默认隐藏 */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* 平滑过渡效果 */
+    padding: 40px 20px; /* 增大点击热区 */
     cursor: pointer;
-    padding: 20px;
 }
-.gallery-btn.prev { left: 0; }
-.gallery-btn.next { right: 0; }
+
+/* 当鼠标移动到图库区域时，显示按钮 */
+.project-gallery:hover .gallery-btn {
+    opacity: 1;
+}
+
+/* 再次微调：鼠标直接悬停在按钮上时稍微变淡，增加反馈 */
+.gallery-btn:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.gallery-btn.prev {
+    left: 10px;
+}
+
+.gallery-btn.next {
+    right: 10px;
+}
+
+/* 确保图片不会遮挡按钮 */
+.gallery-track img {
+    pointer-events: none; /* 防止图片拖拽干扰滑动 */
+}
 
 /* 响应式：手机端变为单列 */
 @media (max-width: 900px) {
