@@ -89,6 +89,7 @@ body {
   max-width: 700px;
   margin-left: auto;
   padding-bottom: 120px;
+  padding-left: calc(72px + 48px);
 }
 
 .intro-main {
@@ -238,6 +239,7 @@ max-width: 772px;
   .intro {
     grid-template-columns: 1fr;
     gap: 24px;
+    padding-left: 0;
     padding-bottom: 80px;
   }
 
