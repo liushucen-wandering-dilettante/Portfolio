@@ -183,18 +183,6 @@ max-width: 772px;
   align-items: start;
 }
 
-.meta-left h2 a {
-  color; #111111;
-  text-decoration; none;
-  font-size: 14px;
-  font-weight: 400;
-  margin-bottom: 12px;
-}
-
-.meta-left h2 a:hover,
-.project-links a:hover {
-  opacity: 0.45;
-  }
 .meta-right p {
   margin-bottom: 2px;
 }
@@ -213,13 +201,18 @@ max-width: 772px;
   width: 100%;
   height: auto;
 }
-.meta-left h2 a {
+.meta-left h2 a,
+.meta-left h2 a:visited,
+.meta-left h2 a:active {
   color: #8a8a8a;
   text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .meta-left h2 a:hover {
   opacity: 0.6;
+}
 }
 /* 响应式 */
 @media (max-width: 900px) {
