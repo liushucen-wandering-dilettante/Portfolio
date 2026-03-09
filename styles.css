@@ -282,30 +282,47 @@ max-width: 772px;
   scroll-snap-align: start;
 }
 
-/* 左右按钮 */
-.gallery-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  border: none;
-  background: rgba(255, 255, 255, 0.85);
-  color: #111;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
-  line-height: 1;
-  padding: 8px 10px;
-  cursor: pointer;
+/* --- 极简悬停箭头更新 --- */
+
+.project-gallery {
+    position: relative;
+    cursor: pointer;
+    overflow: visible; /* 允许箭头微调位置 */
 }
 
-.gallery-btn:hover {
-  opacity: 0.6;
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: none;
+    border: none;
+    color: #ffffff; /* 箭头颜色 */
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 24px;
+    font-weight: 300;
+    text-shadow: 0 0 8px rgba(0,0,0,0.5); /* 增加阴影确保在浅色图上可见 */
+    
+    /* 初始状态：完全透明 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 60px 20px; /* 增加鼠标点击触发的热区 */
+    cursor: pointer;
+}
+
+/* 鼠标移动到图片上方时显示 */
+.project-gallery:hover .gallery-btn {
+    opacity: 1;
 }
 
 .gallery-btn.prev {
-  left: 10px;
+    left: 15px; /* 靠近图片左边缘 */
 }
 
 .gallery-btn.next {
-  right: 10px;
+    right: 15px; /* 靠近图片右边缘 */
+}
+
+.gallery-btn:hover {
+    color: rgba(255, 255, 255, 0.6); /* 悬停在箭头本身时变淡提示 */
 }
