@@ -80,42 +80,31 @@ body {
 
 /* 顶部个人简介 */
 .intro {
-  width: 100%;
-  max-width: 772px;
   display: block;
+  width: 100%;
   height: auto;
-  margin-left: auto;
-  padding-bottom: 120px;
+  display:block;
 }
 
 .intro-main {
-  width: 100%;
-  max-width: 772px;
-  margin-left: calc(72px + 48px);
   display: block;
-  flex-direction: column;
-  align-items: flex-start;
-  grid-template-columns: 72px 1fr;
+  width: 100%;
+  height: auto;
+  display:block;
 }
 
 .intro-text {
-  width: 100%;
-  max-width: 772px;
-  margin-left: calc(72px + 48px);
   display: block;
-  flex-direction: column;
-  align-items: flex-start;
-  grid-template-columns: 72px 1fr;
+  width: 100%;
+  height: auto;
+  display:block;
 }
 
 .intro-text p + p {
+ display: block;
   width: 100%;
-  max-width: 772px;
-  margin-left: calc(72px + 48px);
-  display: block;
-  flex-direction: column;
-  align-items: flex-start;
-  grid-template-columns: 72px 1fr;
+  height: auto;
+  display:block;
 }
 
 .intro-tags {
