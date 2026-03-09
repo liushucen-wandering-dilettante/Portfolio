@@ -4,273 +4,277 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Name — Portfolio</title>
-    <meta
-      name="description"
-      content="Personal portfolio website"
-    />
+    <meta name="description" content="Personal portfolio website" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="frame">
-      <!-- 左侧目录 -->
-      <aside class="index-nav">
-        <div class="index-title">Index</div>
-        <nav>
-          <a href="#info"><span>00.</span><span>Information</span></a>
-          <a href="#project-a"><span>01.</span><span>Project A</span></a>
-          <a href="#project-b"><span>02.</span><span>Project B</span></a>
-          <a href="#project-c"><span>03.</span><span>Project C</span></a>
-          <a href="#project-d"><span>04.</span><span>Project D</span></a>
-          <a href="#project-e"><span>05.</span><span>Project E</span></a>
-          <a href="#project-f"><span>06.</span><span>Project F</span></a>
-        </nav>
+    <div class="site-shell">
+      <!-- 左侧固定目录 -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <div class="index-title">Index</div>
+          <nav class="index-nav">
+            <a href="#information"><span>00.</span><span>Information</span></a>
+            <a href="#project-01"><span>01.</span><span>Project A</span></a>
+            <a href="#project-02"><span>02.</span><span>Project B</span></a>
+            <a href="#project-03"><span>03.</span><span>Project C</span></a>
+            <a href="#project-04"><span>04.</span><span>Project D</span></a>
+            <a href="#project-05"><span>05.</span><span>Project E</span></a>
+            <a href="#project-06"><span>06.</span><span>Project F</span></a>
+          </nav>
+
+          <div class="sidebar-footer">
+            <span id="clock">00:00:00</span>
+            <span>Cargo Demo Template</span>
+          </div>
+        </div>
       </aside>
 
-      <!-- 右上角简介 -->
-      <section class="intro" id="info">
-        <p class="intro-text">
-          这里可以放你的个人简介、创作陈述或一句比较简洁的自我介绍。
-          建议控制在 4–6 行，保持留白和克制的节奏。你也可以写成中英双语。
-        </p>
+      <!-- 右侧滚动内容 -->
+      <main class="content">
+        <section class="intro-block" id="information">
+          <div class="intro-text">
+            <p>
+              这里可以放你的个人简介、创作陈述或简短的自我介绍。建议保持简洁，
+              让页面有足够的留白。也可以写成中英双语，上中文下英文。
+            </p>
+            <p>
+              This area can hold your short bio, artist statement, or an
+              introduction to your practice. Keep it light and spacious.
+            </p>
+          </div>
 
-        <div class="profile">
-          <div class="profile-title">Profile</div>
-          <a href="mailto:hello@example.com">hello@example.com</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-      </section>
+          <div class="profile-block">
+            <div class="profile-title">Profile</div>
+            <a href="mailto:hello@example.com">hello@example.com</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </section>
 
-      <!-- 项目列表 -->
-      <section class="projects">
-        <!-- Project A -->
-        <article class="project" id="project-a">
-          <div class="project-no">01.</div>
+        <section class="project" id="project-01">
+          <div class="project-grid">
+            <div class="project-no">01.</div>
 
-          <div class="project-main">
-            <div class="project-head">
-              <div>
-                <h2>Project A</h2>
-                <div class="meta">
-                  <p>Independent publication</p>
-                  <p>Chinese / English</p>
-                  <p>2025</p>
+            <div class="project-body">
+              <div class="project-meta-row">
+                <div class="project-meta-left">
+                  <h2>Project A</h2>
+                  <p>NAi Publishers</p>
+                  <p>Dutch / English</p>
+                  <p>1999</p>
+                </div>
+
+                <div class="project-meta-right">
+                  <p>Publication</p>
+                  <p>ISBN: 90–5662–115–7</p>
+                  <p>235 × 324mm</p>
+                  <p>160 pp. Softcover</p>
                 </div>
               </div>
 
-              <div class="spec">
-                <p>Book / Publication</p>
-                <p>210 × 297 mm</p>
-                <p>96 pages</p>
-                <p>Softcover</p>
+              <div class="project-text">
+                <p>
+                  这里写项目简介。你可以放出版物、影像、写作、展览或研究项目的简短说明。
+                  风格上尽量克制，不要把文字塞太满，这样更接近参考图的节奏。
+                </p>
+              </div>
+
+              <div class="project-image black-frame">
+                <img
+                  src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80"
+                  alt="Project A"
+                />
               </div>
             </div>
-
-            <p class="project-text">
-              这里写项目简介。可以是出版物、影像、装置、写作、策展项目的概述，
-              用简短的一段文字介绍项目的背景、方法、主题或展示方式。
-            </p>
-
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80"
-                alt="Project A cover or documentation"
-              />
-            </div>
           </div>
-        </article>
+        </section>
 
-        <!-- Project B -->
-        <article class="project" id="project-b">
-          <div class="project-no">02.</div>
+        <section class="project" id="project-02">
+          <div class="project-grid">
+            <div class="project-no">02.</div>
 
-          <div class="project-main">
-            <div class="project-head">
-              <div>
-                <h2>Project B</h2>
-                <div class="meta">
+            <div class="project-body">
+              <div class="project-meta-row">
+                <div class="project-meta-left">
+                  <h2>Project B</h2>
                   <p>Video installation</p>
-                  <p>Single-channel video</p>
+                  <p>Single-channel</p>
                   <p>2024</p>
                 </div>
+
+                <div class="project-meta-right">
+                  <p>Exhibition</p>
+                  <p>HD Video</p>
+                  <p>12'34"</p>
+                  <p>Loop</p>
+                </div>
               </div>
 
-              <div class="spec">
-                <p>Exhibition</p>
-                <p>12'34"</p>
-                <p>HD video</p>
-                <p>Loop</p>
+              <div class="project-text">
+                <p>
+                  第二个项目也可以沿用同样结构。左边只放编号，右边放标题、媒介、年份、简介和图片。
+                </p>
               </div>
-            </div>
 
-            <p class="project-text">
-              这里继续写第二个项目的介绍。为了接近你参考图里的感觉，
-              每个项目尽量保持信息清晰、排版工整、文字不过度拥挤。
-            </p>
-
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
-                alt="Project B documentation"
-              />
+              <div class="project-image">
+                <img
+                  src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1200&q=80"
+                  alt="Project B"
+                />
+              </div>
             </div>
           </div>
-        </article>
+        </section>
 
-        <!-- Project C -->
-        <article class="project" id="project-c">
-          <div class="project-no">03.</div>
+        <section class="project" id="project-03">
+          <div class="project-grid">
+            <div class="project-no">03.</div>
 
-          <div class="project-main">
-            <div class="project-head">
-              <div>
-                <h2>Project C</h2>
-                <div class="meta">
+            <div class="project-body">
+              <div class="project-meta-row">
+                <div class="project-meta-left">
+                  <h2>Project C</h2>
                   <p>Writing / Essay</p>
                   <p>Online publication</p>
                   <p>2024</p>
                 </div>
+
+                <div class="project-meta-right">
+                  <p>Text</p>
+                  <p>Bilingual</p>
+                  <p>Commissioned</p>
+                  <p>Digital format</p>
+                </div>
               </div>
 
-              <div class="spec">
-                <p>Text</p>
-                <p>Essay</p>
-                <p>Bilingual</p>
-                <p>Commissioned</p>
+              <div class="project-text">
+                <p>
+                  如果你是申请艺术、影像、写作、策展相关岗位，这种版式会显得很冷静，也比较专业。
+                </p>
               </div>
-            </div>
 
-            <p class="project-text">
-              你可以把项目类型写得很简洁，比如 writing、film、book、installation、
-              exhibition、research、performance 等，让页面更像档案索引。
-            </p>
-
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
-                alt="Project C related image"
-              />
+              <div class="project-image">
+                <img
+                  src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
+                  alt="Project C"
+                />
+              </div>
             </div>
           </div>
-        </article>
+        </section>
 
-        <!-- Project D -->
-        <article class="project" id="project-d">
-          <div class="project-no">04.</div>
+        <section class="project" id="project-04">
+          <div class="project-grid">
+            <div class="project-no">04.</div>
 
-          <div class="project-main">
-            <div class="project-head">
-              <div>
-                <h2>Project D</h2>
-                <div class="meta">
+            <div class="project-body">
+              <div class="project-meta-row">
+                <div class="project-meta-left">
+                  <h2>Project D</h2>
                   <p>Research project</p>
                   <p>Archive / Fieldwork</p>
                   <p>2023</p>
                 </div>
+
+                <div class="project-meta-right">
+                  <p>Research</p>
+                  <p>Ongoing</p>
+                  <p>Text + Image</p>
+                  <p>Archive-based</p>
+                </div>
               </div>
 
-              <div class="spec">
-                <p>Research</p>
-                <p>Ongoing</p>
-                <p>Archive-based</p>
-                <p>Text + Image</p>
+              <div class="project-text">
+                <p>
+                  你后面只要复制这个 section.project 结构，就可以继续加更多项目。
+                </p>
               </div>
-            </div>
 
-            <p class="project-text">
-              这一类版式很适合艺术家、设计师、研究者、写作者和策展人，
-              因为它不会过度强调视觉装饰，而是突出内容本身。
-            </p>
-
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
-                alt="Project D archive image"
-              />
+              <div class="project-image">
+                <img
+                  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+                  alt="Project D"
+                />
+              </div>
             </div>
           </div>
-        </article>
+        </section>
 
-        <!-- Project E -->
-        <article class="project" id="project-e">
-          <div class="project-no">05.</div>
+        <section class="project" id="project-05">
+          <div class="project-grid">
+            <div class="project-no">05.</div>
 
-          <div class="project-main">
-            <div class="project-head">
-              <div>
-                <h2>Project E</h2>
-                <div class="meta">
+            <div class="project-body">
+              <div class="project-meta-row">
+                <div class="project-meta-left">
+                  <h2>Project E</h2>
                   <p>Exhibition making</p>
                   <p>Curatorial practice</p>
                   <p>2023</p>
                 </div>
+
+                <div class="project-meta-right">
+                  <p>Exhibition</p>
+                  <p>Group show</p>
+                  <p>Documentation</p>
+                  <p>Installation</p>
+                </div>
               </div>
 
-              <div class="spec">
-                <p>Exhibition</p>
-                <p>Group show</p>
-                <p>Spatial installation</p>
-                <p>Documentation</p>
+              <div class="project-text">
+                <p>
+                  右边内容区可以单独滚动，左边目录始终可见，浏览体验会很清楚。
+                </p>
               </div>
-            </div>
 
-            <p class="project-text">
-              后面你也可以继续往里补更多信息，比如展览地点、合作对象、出版信息、
-              奖项或放映记录，但建议保持节制。
-            </p>
-
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80"
-                alt="Project E exhibition view"
-              />
+              <div class="project-image">
+                <img
+                  src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80"
+                  alt="Project E"
+                />
+              </div>
             </div>
           </div>
-        </article>
+        </section>
 
-        <!-- Project F -->
-        <article class="project" id="project-f">
-          <div class="project-no">06.</div>
+        <section class="project" id="project-06">
+          <div class="project-grid">
+            <div class="project-no">06.</div>
 
-          <div class="project-main">
-            <div class="project-head">
-              <div>
-                <h2>Project F</h2>
-                <div class="meta">
+            <div class="project-body">
+              <div class="project-meta-row">
+                <div class="project-meta-left">
+                  <h2>Project F</h2>
                   <p>Mixed media</p>
                   <p>Image / text / sound</p>
                   <p>2022</p>
                 </div>
+
+                <div class="project-meta-right">
+                  <p>Selected works</p>
+                  <p>Web format</p>
+                  <p>Documentation</p>
+                  <p>Archive</p>
+                </div>
               </div>
 
-              <div class="spec">
-                <p>Project page</p>
-                <p>Documentation</p>
-                <p>Web format</p>
-                <p>Selected works</p>
+              <div class="project-text">
+                <p>
+                  最后一个项目可以是 older work、archive、selected writing 或 exhibition history。
+                </p>
               </div>
-            </div>
 
-            <p class="project-text">
-              这是最后一个示例项目。后续你可以根据需要继续复制 article.project
-              这个结构，增加更多项目条目。
-            </p>
-
-            <div class="project-image">
-              <img
-                src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80"
-                alt="Project F documentation"
-              />
+              <div class="project-image">
+                <img
+                  src="https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80"
+                  alt="Project F"
+                />
+              </div>
             </div>
           </div>
-        </article>
-      </section>
-
-      <!-- 左下角小信息 -->
-      <footer class="site-footer">
-        <span id="clock">00:00:00</span>
-        <span>Your Name — Portfolio</span>
-      </footer>
-    </main>
+        </section>
+      </main>
+    </div>
 
     <script>
       function updateClock() {
