@@ -1,126 +1,127 @@
-<!doctype html>
-<html lang="en-EN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shucen Liu</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="sidebar-inner">
-        <div class="index-title">Index</div>
-        <nav class="index-nav">
-          <a href="#information"><span>00.</span><span>Information</span></a>
-          <a href="#project-01"><span>01.</span><span>Narrative Room</span></a>
-          <a href="#project-02"><span>02.</span><span>Where Within</span></a>
-          <a href="#project-03"><span>03.</span><span>Navel</span></a>
-          <a href="#project-04"><span>04.</span><span>Where is Lin</span></a>
-          <a href="#project-05"><span>05.</span><span>Translation of Isolation</span></a>
-        </nav>
-        <div class="sidebar-footer">
-          <span id="clock">00:00:00</span>
-          <span>Shucen Liu</span>
-        </div>
-      </div>
-    </aside>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "IBM Plex Mono", monospace;
+  background: #ffffff;
+  color: #111111;
+  line-height: 1.4;
+  font-size: 14px;
+}
 
-    <main class="content">
-      <div class="content-inner">
-        <section class="intro" id="information">
-          <div class="intro-main">
-            <div class="intro-text">
-              <p>Designer and interdisciplinary practitioner with a background in architecture and design. Her work explores estrangement in familiar spaces and the ways individuals construct a sense of belonging in unfamiliar environments. Working across design research, curating, moving images, and publishing, she is interested in how people situate themselves amid transition and migration.</p>
-            </div>
-            <div class="intro-tags">
-              <p>Design Research / Curating / Moving Image / Book Design / Spatial Narrative</p>
-            </div>
-            <div class="profile">
-              <div class="profile-title">Profile</div>
-              <a href="mailto:liushucen991214@gmail.com">liushucen991214@gmail.com</a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-            </div>
-          </div>
-        </section>
+/* 整体两列布局 */
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
 
-        <section class="project" id="project-01">
-          <div class="project-row">
-            <div class="project-no">01.</div>
-            <div class="project-body">
-              <div class="project-meta">
-                <div class="meta-left">
-                  <h2>Narrative Room</h2>
-                  <p class="sub-title">A Service System for Gap-Year Youth to Explore Identity through Self-Narration</p>
-                </div>
-                <div class="meta-right">
-                  <p>Product Service System Design</p>
-                  <p>2024.12 - 2026.02</p>
-                  <p>Liangzhu, China</p>
-                </div>
-              </div>
-              <div class="project-text">
-                <p>Narrative Room is a lightweight service system designed for young people navigating transitional periods, such as gap years or career changes. Centered around a replicable card-based toolkit, it combines spatial setup and facilitation scripts to create a temporary yet structured narrative container within shared community spaces...</p>
-              </div>
-              <div class="project-gallery">
-                <button class="gallery-btn prev" aria-label="Previous image">←</button>
-                <div class="gallery-track">
-                  <img src="images/Narrative Room001.jpg" alt="Image 1" />
-                  <img src="images/Narrative Room002.jpg" alt="Image 2" />
-                  <img src="images/Narrative Room003.jpg" alt="Image 3" />
-                </div>
-                <button class="gallery-btn next" aria-label="Next image">→</button>
-              </div>
-            </div>
-          </div>
-        </section>
+/* 左侧 Index */
+.sidebar { padding: 24px; }
+.sidebar-inner {
+  position: sticky;
+  top: 24px;
+  height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+}
+.index-nav { display: flex; flex-direction: column; gap: 4px; margin-top: 20px; }
+.index-nav a {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  text-decoration: none;
+  color: inherit;
+}
+.index-nav a:hover { opacity: 0.5; }
+.sidebar-footer { margin-top: auto; display: flex; gap: 20px; font-size: 12px; }
 
-        <section class="project" id="project-02">
-          <div class="project-row">
-            <div class="project-no">02.</div>
-            <div class="project-body">
-              <div class="project-meta">
-                <div class="meta-left">
-                  <h2>Where Within</h2>
-                  <p class="sub-title">A Multimedia Exhibition Exploring Personal Experience in Public Space</p>
-                </div>
-                <div class="meta-right">
-                  <p>Independent Curating / Video installation</p>
-                  <p>2025.03 - 2025.07</p>
-                  <p>Cologne, Germany</p>
-                </div>
-              </div>
-              <div class="project-text">
-                <p>Where Within is a self-organized curatorial project I initiated in Cologne in 2025, exploring how individuals might build a deeper dialogue with their surroundings within the mechanized rhythms of urban life...</p>
-              </div>
-              <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1200&q=80" alt="Project 02" />
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-  </div>
+/* 右侧内容容器 */
+.content { padding: 24px 0 100px 0; }
+.content-inner {
+  width: 100%;
+  max-width: 1000px; /* 增加总宽度 */
+  margin-left: 40px; /* 与侧边栏的间距 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 核心：全部左对齐 */
+}
 
-  <script>
-    // 时钟脚本
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").textContent = now.toLocaleTimeString("en-GB", { hour12: false });
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
+/* 个人简介与项目正文对齐线 */
+/* 编号宽(72px) + 间距(48px) = 120px */
+.intro-main, .project-body { margin-left: 120px; width: calc(100% - 120px); }
 
-    // 图库滑动脚本
-    document.querySelectorAll(".project-gallery").forEach((gallery) => {
-      const track = gallery.querySelector(".gallery-track");
-      gallery.querySelector(".prev").onclick = () => track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
-      gallery.querySelector(".next").onclick = () => track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
-    });
-  </script>
-</body>
-</html>
+.intro { padding-bottom: 120px; width: 100%; }
+.intro-text { max-width: 700px; margin-bottom: 24px; }
+.intro-tags { opacity: 0.6; margin-bottom: 60px; }
+.profile a { display: block; text-decoration: none; color: inherit; margin-bottom: 4px; }
+
+/* 项目区块 */
+.project { width: 100%; padding-bottom: 120px; }
+.project-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  column-gap: 48px;
+  width: 100%;
+}
+.project-no { font-weight: 500; }
+
+/* 项目标题与元数据并排 */
+.project-meta {
+  display: grid;
+  grid-template-columns: 1fr 240px; /* 标题占左，信息占右 */
+  gap: 40px;
+  margin-bottom: 30px;
+  align-items: start;
+}
+.meta-left h2 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+.sub-title { opacity: 0.6; margin-bottom: 12px; }
+.meta-right p { font-size: 13px; opacity: 0.5; margin-bottom: 2px; }
+
+/* 项目描述文本 */
+.project-text { max-width: 700px; margin-bottom: 40px; line-height: 1.6; }
+
+/* 图片与图库 */
+.project-image img, .gallery-track img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-gallery { position: relative; width: 100%; }
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-track img { flex: 0 0 100%; scroll-snap-align: start; }
+
+/* ✅ 极简 Gallery 按钮（无圆圈） */
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: none;
+  border: none;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  font-size: 32px;
+  cursor: pointer;
+  padding: 20px;
+  transition: opacity 0.3s;
+  font-family: serif; /* 使用衬线体箭头有时更优雅 */
+}
+.gallery-btn:hover { opacity: 0.5; }
+.gallery-btn.prev { left: 0; }
+.gallery-btn.next { right: 0; }
+
+/* 响应式适配 */
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { height: auto; position: static; }
+  .sidebar-inner { height: auto; position: static; }
+  .content-inner { margin-left: 24px; margin-right: 24px; }
+  .intro-main, .project-body { margin-left: 0; width: 100%; }
+  .project-meta { grid-template-columns: 1fr; gap: 20px; }
+}
