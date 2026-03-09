@@ -1,127 +1,125 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
 body {
-  font-family: "IBM Plex Mono", monospace;
-  background: #ffffff;
-  color: #111111;
-  line-height: 1.4;
-  font-size: 14px;
+    font-family: "IBM Plex Mono", monospace;
+    background: #fff;
+    color: #111;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
-/* 整体两列布局 */
+/* 核心布局：左侧固定，右侧自由 */
 .layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  min-height: 100vh;
+    display: grid;
+    grid-template-columns: 320px 1fr; /* 左侧宽度调宽，增加中间留白感 */
+    min-height: 100vh;
 }
 
 /* 左侧 Index */
-.sidebar { padding: 24px; }
-.sidebar-inner {
-  position: sticky;
-  top: 24px;
-  height: calc(100vh - 48px);
-  display: flex;
-  flex-direction: column;
+.sidebar {
+    padding: 30px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
-.index-nav { display: flex; flex-direction: column; gap: 4px; margin-top: 20px; }
-.index-nav a {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  text-decoration: none;
-  color: inherit;
+.sidebar-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-.index-nav a:hover { opacity: 0.5; }
+.index-nav { margin-top: 20px; display: flex; flex-direction: column; gap: 5px; }
+.index-nav a { 
+    display: grid; 
+    grid-template-columns: 40px 1fr; 
+    text-decoration: none; 
+    color: inherit; 
+}
 .sidebar-footer { margin-top: auto; display: flex; gap: 20px; font-size: 12px; }
 
-/* 右侧内容容器 */
-.content { padding: 24px 0 100px 0; }
-.content-inner {
-  width: 100%;
-  max-width: 1000px; /* 增加总宽度 */
-  margin-left: 40px; /* 与侧边栏的间距 */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* 核心：全部左对齐 */
+/* 右侧内容区 */
+.content {
+    padding: 30px 60px 120px 0; /* 右侧留出呼吸空间 */
 }
 
-/* 个人简介与项目正文对齐线 */
-/* 编号宽(72px) + 间距(48px) = 120px */
-.intro-main, .project-body { margin-left: 120px; width: calc(100% - 120px); }
+/* 所有内容的左对齐基准线 */
+.section-intro, .project-meta-grid, .project-description {
+    max-width: 800px;
+    margin-left: 100px; /* 编号 01. 之后的文字从此起始 */
+}
 
-.intro { padding-bottom: 120px; width: 100%; }
-.intro-text { max-width: 700px; margin-bottom: 24px; }
-.intro-tags { opacity: 0.6; margin-bottom: 60px; }
-.profile a { display: block; text-decoration: none; color: inherit; margin-bottom: 4px; }
+/* 简介部分 */
+.section-intro { padding-bottom: 150px; }
+.tags-block { margin-top: 20px; opacity: 0.5; }
+.profile-block { margin-top: 60px; }
+.profile-block a { display: block; color: inherit; text-decoration: none; margin-top: 4px; }
 
-/* 项目区块 */
-.project { width: 100%; padding-bottom: 120px; }
-.project-row {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  column-gap: 48px;
-  width: 100%;
+/* 项目部分 */
+.project { padding-bottom: 120px; }
+.project-header {
+    display: grid;
+    grid-template-columns: 100px 1fr; /* 100px 对应上面的 margin-left */
+    align-items: start;
+    margin-bottom: 20px;
 }
 .project-no { font-weight: 500; }
 
-/* 项目标题与元数据并排 */
-.project-meta {
-  display: grid;
-  grid-template-columns: 1fr 240px; /* 标题占左，信息占右 */
-  gap: 40px;
-  margin-bottom: 30px;
-  align-items: start;
+.project-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 240px; /* 标题与元数据并排 */
+    gap: 40px;
+    margin-left: 0; /* 在 header 内部，无需再次 margin */
 }
-.meta-left h2 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-.sub-title { opacity: 0.6; margin-bottom: 12px; }
+
+.meta-left h2 { font-size: 14px; font-weight: 500; margin-bottom: 5px; }
+.sub-title { opacity: 0.5; font-size: 13px; }
 .meta-right p { font-size: 13px; opacity: 0.5; margin-bottom: 2px; }
 
-/* 项目描述文本 */
-.project-text { max-width: 700px; margin-bottom: 40px; line-height: 1.6; }
-
-/* 图片与图库 */
-.project-image img, .gallery-track img {
-  width: 100%;
-  height: auto;
-  display: block;
+.project-description {
+    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
-.project-gallery { position: relative; width: 100%; }
+/* 图库与图片 - 宽度占满右侧可用空间 */
+.project-gallery, .project-image {
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
 .gallery-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 }
 .gallery-track::-webkit-scrollbar { display: none; }
-.gallery-track img { flex: 0 0 100%; scroll-snap-align: start; }
-
-/* ✅ 极简 Gallery 按钮（无圆圈） */
-.gallery-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background: none;
-  border: none;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
-  font-size: 32px;
-  cursor: pointer;
-  padding: 20px;
-  transition: opacity 0.3s;
-  font-family: serif; /* 使用衬线体箭头有时更优雅 */
+.gallery-track img, .project-image img {
+    flex: 0 0 100%;
+    width: 100%;
+    display: block;
 }
-.gallery-btn:hover { opacity: 0.5; }
+
+/* 极简箭头样式 */
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    background: none;
+    border: none;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(0,0,0,0.4);
+    font-size: 30px;
+    cursor: pointer;
+    padding: 20px;
+}
 .gallery-btn.prev { left: 0; }
 .gallery-btn.next { right: 0; }
 
-/* 响应式适配 */
-@media (max-width: 1024px) {
-  .layout { grid-template-columns: 1fr; }
-  .sidebar { height: auto; position: static; }
-  .sidebar-inner { height: auto; position: static; }
-  .content-inner { margin-left: 24px; margin-right: 24px; }
-  .intro-main, .project-body { margin-left: 0; width: 100%; }
-  .project-meta { grid-template-columns: 1fr; gap: 20px; }
+/* 响应式：手机端变为单列 */
+@media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { height: auto; position: static; }
+    .content { padding: 20px; }
+    .section-intro, .project-meta-grid, .project-description { margin-left: 0; }
+    .project-header { grid-template-columns: 40px 1fr; }
+    .project-meta-grid { grid-template-columns: 1fr; gap: 20px; }
 }
