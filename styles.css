@@ -73,9 +73,9 @@ body {
 /* 让内容整体靠右 */
 .content-inner {
   width: 100%;
-  max-width:900px
+  max-width: 760px；
   margin-left: 0;
-  margin-right:0;
+  margin-right: 0;
 }
 
 /* 顶部个人简介 */
@@ -145,10 +145,10 @@ body {
 
 .project-meta {
   display: grid;
-  grid-template-columns: minmax(0,1fr)220px;
+  grid-template-columns: minmax(0, 1fr) 220px;
   gap: 24px;
   margin-bottom: 18px;
-  align-items:start;
+  align-items: start;
 }
 
 .meta-left h2 {
