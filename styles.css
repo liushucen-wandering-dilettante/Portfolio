@@ -525,15 +525,16 @@ max-width: 772px;
 
 .video-info-row {
   width: 100%;
-  margin: 12px 0 72px 0;
+  margin: 28px 0 88px 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 32px;
   align-items: start;
-  color: #777777;
+  color: #7f7f7f;
 }
 
-.video-info-description p {
+.video-info-description p,
+.video-info-credits p {
   margin: 0;
 }
 
@@ -542,7 +543,6 @@ max-width: 772px;
   flex-direction: column;
   gap: 4px;
 }
-
 .video-info-credits p {
   margin: 0;
 }
@@ -559,4 +559,11 @@ max-width: 772px;
     min-width: 0;
     margin-right: 8px;
   }
+}
+.detail-text-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 32px;
 }
