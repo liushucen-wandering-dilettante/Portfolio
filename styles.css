@@ -518,14 +518,20 @@ max-width: 772px;
   width: 100%;
   height: auto;
 }
+.detail-video-block {
+  width: 100%;
+  margin: 72px 0 0 0;
+}
+
 .video-caption-block {
   width: 100%;
   max-width: 700px;
-  margin: 20px 0 48px 0;
+  margin: 10px 0 64px 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 220px;
   gap: 24px;
   align-items: start;
+  color: #777777;
 }
 
 .video-description p {
@@ -537,9 +543,19 @@ max-width: 772px;
 }
 
 .video-credits span {
-  color: #8a8a8a;
+  color: #9a9a9a;
   display: inline-block;
   min-width: 110px;
+}
+.video-caption-simple {
+  width: 100%;
+  max-width: 700px;
+  margin: 10px 0 64px 0;
+  color: #777777;
+}
+
+.video-caption-simple p + p {
+  margin-top: 14px;
 }
 
 @media (max-width: 900px) {
