@@ -518,3 +518,39 @@ max-width: 772px;
   width: 100%;
   height: auto;
 }
+.video-caption-block {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px 0 48px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 24px;
+  align-items: start;
+}
+
+.video-description p {
+  margin: 0;
+}
+
+.video-credits p {
+  margin-bottom: 4px;
+}
+
+.video-credits span {
+  color: #8a8a8a;
+  display: inline-block;
+  min-width: 110px;
+}
+
+@media (max-width: 900px) {
+  .video-caption-block {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .video-credits span {
+    min-width: 0;
+    margin-right: 8px;
+  }
+}
