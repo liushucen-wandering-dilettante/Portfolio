@@ -567,3 +567,6 @@ max-width: 772px;
   align-items: start;
   margin-top: 32px;
 }
+.member-name {
+  color: #8a8a8a;
+}
