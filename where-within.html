@@ -72,16 +72,31 @@
         </div>
       </section>
       <section class="full-image-block">
-  <img src="images/where-within-documentation-001.jpg" alt="Where Within full image" />
+  <img 
+    src="images/where-within-documentation-001.jpg" 
+    alt="Where Within full image" 
+    class="zoomable-image"
+    />
 </section>
             <section class="full-image-block">
-  <img src="images/where-within-documentation-002.jpg" alt="Where Within full image" />
+  <img 
+    src="images/where-within-documentation-002.jpg" 
+    alt="Where Within full image" 
+    class="zoomable-image"
+    />
 </section>
             <section class="full-image-block">
-  <img src="images/where-within-documentation-003.jpg" alt="Where Within full image" />
+  <img 
+    src="images/where-within-documentation-003.jpg" 
+    alt="Where Within full image" 
+    class="zoomable-image"/>
 </section>
             <section class="full-image-block">
-  <img src="images/where-within-documentation-004.jpg" alt="Where Within full image" />
+  <img 
+    src="images/where-within-documentation-004.jpg" 
+    alt="Where Within full image" 
+    class="zoomable-image"
+    />
 </section>
       
       <section class="detail-video-block">
@@ -212,7 +227,44 @@
             of sensing place, authorship, and collective imagination.
           </p>
         </div>
-      </section>
+        </section>
     </main>
+    <div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image">×</button>
+  <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+</div>
+    <script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxClose = document.getElementById("lightbox-close");
+  const zoomableImages = document.querySelectorAll(".zoomable-image");
+
+  zoomableImages.forEach((img) => {
+    img.addEventListener("click", () => {
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightbox.classList.add("active");
+    });
+  });
+
+  lightboxClose.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+    lightboxImage.src = "";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("active");
+      lightboxImage.src = "";
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.classList.remove("active");
+      lightboxImage.src = "";
+    }
+  });
+</script>
   </body>
 </html>
