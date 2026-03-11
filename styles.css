@@ -157,6 +157,23 @@ justify-content: flex-end;
   height: auto;
   display:block;
 }
+.project-image a,
+.gallery-track a {
+  display: block;
+  text-decoration: none;
+}
+
+.gallery-track a {
+  flex: 0 0 100%;
+}
+
+.gallery-track a img,
+.project-image a img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .project-row {
 width: 100%;
 max-width: 772px;
