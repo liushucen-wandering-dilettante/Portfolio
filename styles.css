@@ -589,12 +589,17 @@ max-width: 772px;
 
 .zoomable-image {
   cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+
+.zoomable-image:hover {
+  opacity: 0.92;
 }
 
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   display: none;
   align-items: center;
   justify-content: center;
@@ -607,7 +612,7 @@ max-width: 772px;
 }
 
 .lightbox-image {
-  max-width: 96vw;
+  max-width: 94vw;
   max-height: 92vh;
   width: auto;
   height: auto;
@@ -616,17 +621,18 @@ max-width: 772px;
 
 .lightbox-close {
   position: absolute;
-  top: 18px;
-  right: 22px;
+  top: 16px;
+  right: 18px;
   border: none;
   background: none;
-  color: #ffffff;
+  color: #8a8a8a;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 28px;
+  font-size: 14px;
   line-height: 1;
   cursor: pointer;
+  padding: 0;
 }
 
 .lightbox-close:hover {
-  opacity: 0.65;
+  opacity: 0.45;
 }
