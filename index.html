@@ -84,7 +84,7 @@
                   </div>
                 </div>
 
-                <div class="project-gallery auto-gallary">
+                <div class="project-gallery auto-gallery">
   <button class="gallery-btn prev" aria-label="Previous image">←</button>
 
   <div class="gallery-track">
@@ -155,7 +155,7 @@
                   </div>
                 </div>
 
-                    <div class="project-gallery auto-gallary">
+                    <div class="project-gallery auto-gallery">
   <button class="gallery-btn prev" aria-label="Previous image">←</button>
 
   <div class="gallery-track">
@@ -192,7 +192,7 @@
                   </div>
                 </div>
 
-                    <div class="project-gallery auto-gallary">
+                    <div class="project-gallery auto-gallery">
   <button class="gallery-btn prev" aria-label="Previous image">←</button>
 
   <div class="gallery-track">
@@ -225,11 +225,11 @@
                   </div>
 
                   <div class="meta-right">
-                    <p>TLiving Between Languages
+                    <p>Living Between Languages
                   </div>
                 </div>
 
-                    <div class="project-gallery">
+                    <div class="project-gallery auto-gallery">
   <button class="gallery-btn prev" aria-label="Previous image">←</button>
 
   <div class="gallery-track">
@@ -252,49 +252,7 @@
       </main>
     </div>
 
-    <script>
-      function updateClock() {
-        const now = new Date();
-        const time = now.toLocaleTimeString("en-GB", { hour12: false });
-        document.getElementById("clock").textContent = time;
-      }
-
-      updateClock();
-      setInterval(updateClock, 1000);
-    </script>
-    <script>
-  function updateClock() {
-    const now = new Date();
-    const time = now.toLocaleTimeString("en-GB", { hour12: false });
-    document.getElementById("clock").textContent = time;
-  }
-
-  updateClock();
-  setInterval(updateClock, 1000);
-
-  const galleries = document.querySelectorAll(".project-gallery");
-
-  galleries.forEach((gallery) => {
-    const track = gallery.querySelector(".gallery-track");
-    const prevBtn = gallery.querySelector(".prev");
-    const nextBtn = gallery.querySelector(".next");
-
-    prevBtn.addEventListener("click", () => {
-      track.scrollBy({
-        left: -track.clientWidth,
-        behavior: "smooth"
-      });
-    });
-
-    nextBtn.addEventListener("click", () => {
-      track.scrollBy({
-        left: track.clientWidth,
-        behavior: "smooth"
-      });
-    });
-  });
-</script>
-<script>
+   <script>
   function updateClock() {
     const now = new Date();
     const time = now.toLocaleTimeString("en-GB", { hour12: false });
@@ -341,19 +299,31 @@
     if (images.length <= 1) return;
 
     let currentIndex = 0;
+    let autoSlide;
 
-    setInterval(() => {
-      currentIndex++;
+    function startAutoSlide() {
+      autoSlide = setInterval(() => {
+        currentIndex++;
 
-      if (currentIndex >= images.length) {
-        currentIndex = 0;
-      }
+        if (currentIndex >= images.length) {
+          currentIndex = 0;
+        }
 
-      track.scrollTo({
-        left: currentIndex * track.clientWidth,
-        behavior: "smooth"
-      });
-    }, 3000); // 每 3 秒切换一次
+        track.scrollTo({
+          left: currentIndex * track.clientWidth,
+          behavior: "smooth"
+        });
+      }, 3000);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlide);
+    }
+
+    gallery.addEventListener("mouseenter", stopAutoSlide);
+    gallery.addEventListener("mouseleave", startAutoSlide);
+
+    startAutoSlide();
   });
 </script>
     
