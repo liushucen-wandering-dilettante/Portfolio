@@ -294,5 +294,68 @@
     });
   });
 </script>
+<script>
+  function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString("en-GB", { hour12: false });
+    const clock = document.getElementById("clock");
+    if (clock) {
+      clock.textContent = time;
+    }
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  const galleries = document.querySelectorAll(".project-gallery");
+
+  galleries.forEach((gallery) => {
+    const track = gallery.querySelector(".gallery-track");
+    const prevBtn = gallery.querySelector(".prev");
+    const nextBtn = gallery.querySelector(".next");
+
+    if (!track) return;
+
+    prevBtn?.addEventListener("click", () => {
+      track.scrollBy({
+        left: -track.clientWidth,
+        behavior: "smooth"
+      });
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      track.scrollBy({
+        left: track.clientWidth,
+        behavior: "smooth"
+      });
+    });
+  });
+
+  const autoGalleries = document.querySelectorAll(".auto-gallery");
+
+  autoGalleries.forEach((gallery) => {
+    const track = gallery.querySelector(".gallery-track");
+    if (!track) return;
+
+    const images = track.querySelectorAll("img");
+    if (images.length <= 1) return;
+
+    let currentIndex = 0;
+
+    setInterval(() => {
+      currentIndex++;
+
+      if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+
+      track.scrollTo({
+        left: currentIndex * track.clientWidth,
+        behavior: "smooth"
+      });
+    }, 3000); // 每 3 秒切换一次
+  });
+</script>
+    
   </body>
 </html>
