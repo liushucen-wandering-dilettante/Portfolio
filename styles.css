@@ -243,6 +243,20 @@ max-width: 772px;
   color: #8c8c8c;
 }
 
+.gallery-track a img,
+.project-image a img {
+  transition: opacity 0.2s ease;
+}
+
+.gallery-track a:hover img,
+.project-image a:hover img {
+  opacity: 0.92;
+}
+
+.gallery-track a:active img,
+.project-image a:active img {
+  opacity: 0.7;
+}
 
 
 /* 响应式 */
