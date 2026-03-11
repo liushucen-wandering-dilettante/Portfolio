@@ -1,1 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Translation of Isolation — Shucen Liu</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="project-detail-page">
+    <main class="detail-layout">
+      <header class="detail-header">
+        <a class="back-link" href="index.html">Back</a>
+      </header>
+
+      <section class="detail-top">
+        <div class="detail-intro">
+          <p>
+          Where Is Lin develops the figure of “Lin” not simply as a character, but as a vessel for all the lost places that resurface in my mind upon arriving in Rotterdam—a city where I had no prior memories or attachments. What first appeared as a “non-place” gradually became a place through everyday objects, drifting attention, daydreams, and quiet acts of contemplation. In this process, emotion and the body actively participate in constructing a sense of place.
+          </p>
+
+          <p>
+            The work reflects on what it means to inhabit a city as an expat: to create one’s own place within an unfamiliar environment. “Lin” also carries the feeling of homesickness—not as a fixed image of home, but as fleeting moments of subtle familiarity, like the sudden return of a forgotten dream. Amid the constant flow of urban landscapes and shifting surroundings, meaning no longer emerges from grand narratives, but from small, everyday encounters in which emotion and environment meet.
+       </p>
+        
+          <p>
+            In this sense, the project is informed by a sensibility close to classical Chinese poetics, particularly the idea that emotion can be embedded in and evoked through landscape. Where Is Lin explores how place is not simply given, but slowly formed through perception, memory, and emotional resonance.
+          </p>
+        </div>
+
+        <div class="detail-meta">
+          <div class="meta-group">
+            <p class="meta-title">Where is Lin</p>
+            <p>Video / Experimental Film</p>
+            <p>2024.09-2024.10</p>
+            <p>Rotterdam</p>
+          </div>
+
+          <div class="meta-group">
+            <p>A Stream of Consciousness in Image, Text, and Voice </p>
+            <p>Storytelling through Monologue and Dialogue</p>
+            
+          </div>
+
+     
+      </section>
+      
+      <section class="detail-video-block">
+  <a
+    class="video-thumb"
+    href="https://youtu.be/0KzdJerhHjA?si=_J9w8_WulTHgrY35"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="images/where-is-lin-005.jpg" 
+      alt="Where is Lin video thumbnail" />
+    <div class="video-overlay">
+      <span class="video-play-icon" aria-hidden="true"></span>
+    </div>
+  </a>
+</section>
+
+      <section class="full-image-block">
+  <img 
+    src="images/where-is-lin-005.jpg" 
+    alt="Translation of Isolation full image" 
+     class="zoomable-image"
+    />
+</section>
+        <section class="full-image-block">
+  <img 
+    src="images/where-is-lin-007.jpg" 
+    alt="Translation of Isolation full image" 
+     class="zoomable-image"
+    />
+</section>
+         <section class="full-image-block">
+  <img 
+    src="images/where-is-lin-009.jpg" 
+    alt="Translation of Isolation full image" 
+     class="zoomable-image"
+    />
+</section>
+
+ <section class="full-image-block">
+  <img 
+    src="images/where-is-lin-010.jpg" 
+    alt="Translation of Isolation full image" 
+     class="zoomable-image"
+    />
+</section>
+      
+        </div>
+      </section>
+    </main>
+   <div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close image">Close</button>
+
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+
+  <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">›</button>
+</div>
+   <script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxClose = document.getElementById("lightbox-close");
+  const lightboxPrev = document.getElementById("lightbox-prev");
+  const lightboxNext = document.getElementById("lightbox-next");
+  const zoomableImages = Array.from(document.querySelectorAll(".zoomable-image"));
+
+  let currentImageIndex = 0;
+
+  function showLightboxImage(index) {
+    if (!zoomableImages.length) return;
+
+    currentImageIndex = index;
+    const img = zoomableImages[currentImageIndex];
+
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt || "";
+    lightbox.classList.add("active");
+  }
+
+  function showNextImage() {
+    if (!zoomableImages.length) return;
+    currentImageIndex = (currentImageIndex + 1) % zoomableImages.length;
+    showLightboxImage(currentImageIndex);
+  }
+
+  function showPrevImage() {
+    if (!zoomableImages.length) return;
+    currentImageIndex =
+      (currentImageIndex - 1 + zoomableImages.length) % zoomableImages.length;
+    showLightboxImage(currentImageIndex);
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    lightboxImage.src = "";
+    lightboxImage.alt = "";
+  }
+
+  zoomableImages.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      showLightboxImage(index);
+    });
+  });
+
+  lightboxClose?.addEventListener("click", closeLightbox);
+  lightboxNext?.addEventListener("click", showNextImage);
+  lightboxPrev?.addEventListener("click", showPrevImage);
+
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (e.key === "Escape") {
+      closeLightbox();
+    }
+
+    if (e.key === "ArrowRight") {
+      showNextImage();
+    }
+
+    if (e.key === "ArrowLeft") {
+      showPrevImage();
+    }
+  });
+</script>
+  </body>
+</html>
