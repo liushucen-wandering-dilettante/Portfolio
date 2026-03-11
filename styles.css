@@ -201,18 +201,29 @@ max-width: 772px;
   width: 100%;
   height: auto;
 }
+.meta-left h2 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: normal;
+}
 .meta-left h2 a,
 .meta-left h2 a:visited,
 .meta-left h2 a:active {
-  color: #8a8a8a;
+  color: #111;
   text-decoration: none;
+   transition: color 0.2s ease;
   font-size: 14px;
   font-weight: 400;
 }
 
-.meta-left h2 a:hover {
-  opacity: 0.6;
+.meta-left h2 a:hover,
+.meta-left h2 a:focus,
+.meta-left h2 a:active {
+  color: #9a9a9a;
 }
+
+.meta-right p {
+  color: #8c8c8c;
 }
 
 
