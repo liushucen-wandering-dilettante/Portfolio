@@ -612,8 +612,8 @@ max-width: 772px;
 }
 
 .lightbox-image {
-  max-width: 94vw;
-  max-height: 92vh;
+  max-width: 88vw;
+  max-height: 88vh;
   width: auto;
   height: auto;
   display: block;
@@ -635,4 +635,41 @@ max-width: 772px;
 
 .lightbox-close:hover {
   opacity: 0.45;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: #8a8a8a;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+
+.lightbox-nav:hover {
+  opacity: 0.45;
+}
+
+.lightbox-prev {
+  left: 18px;
+}
+
+.lightbox-next {
+  right: 18px;
+}
+
+@media (max-width: 900px) {
+  .lightbox-image {
+    max-width: 92vw;
+    max-height: 84vh;
+  }
+
+  .lightbox-nav {
+    font-size: 22px;
+  }
 }
