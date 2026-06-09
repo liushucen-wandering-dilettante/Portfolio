@@ -242,7 +242,18 @@ max-width: 772px;
 .meta-right p {
   color: #8c8c8c;
 }
+.meta-group p {
+  margin-bottom: 2px;
+}
 
+.meta-label {
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.member-name {
+  color: #8a8a8a;
+}
 .gallery-track a img,
 .project-image a img {
   transition: opacity 0.2s ease;
