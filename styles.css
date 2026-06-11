@@ -269,15 +269,50 @@ max-width: 772px;
   opacity: 0.7;
 }
 
+.audio-section {
+  width: 100%;
+  max-width: 700px;
+  margin: 32px 0 80px 0;
+}
+
 .audio-block {
   width: 100%;
-  margin: 32px 0 48px 0;
+  margin-bottom: 20px;
 }
 
 .audio-block audio {
   width: 100%;
-  max-width: 700px;
   display: block;
+}
+
+.audio-credits {
+  margin-bottom: 56px;
+  color: #777777;
+}
+
+.audio-credits p {
+  margin-bottom: 4px;
+}
+
+.audio-description {
+  margin-bottom: 16px;
+  color: #777777;
+}
+
+.audio-description p {
+  margin: 0;
+}
+
+.audio-description p + p {
+  margin-top: 4px;
+}
+
+.audio-credits-inline {
+  color: #777777;
+}
+
+.audio-credits-inline p {
+  margin: 0;
 }
 
 /* 响应式 */
