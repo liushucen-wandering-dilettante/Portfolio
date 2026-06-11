@@ -269,6 +269,16 @@ max-width: 772px;
   opacity: 0.7;
 }
 
+.audio-block {
+  width: 100%;
+  margin: 32px 0 48px 0;
+}
+
+.audio-block audio {
+  width: 100%;
+  max-width: 700px;
+  display: block;
+}
 
 /* 响应式 */
 @media (max-width: 900px) {
