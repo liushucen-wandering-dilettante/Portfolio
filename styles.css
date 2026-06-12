@@ -760,6 +760,30 @@ max-width: 772px;
 .lightbox-next {
   right: 18px;
 }
+.guestbook-info {
+  width: 100%;
+  max-width: 700px;
+  margin: 48px 0 32px 0;
+  color: #7f7f7f;
+}
+
+.guestbook-info p {
+  margin: 0;
+}
+
+.guestbook-info p + p {
+  margin-top: 6px;
+}
+
+.guestbook-link a,
+.guestbook-link a:visited {
+  color: #8a8a8a;
+  text-decoration: none;
+}
+
+.guestbook-link a:hover {
+  opacity: 0.6;
+}
 
 @media (max-width: 900px) {
   .lightbox-image {
