@@ -328,6 +328,19 @@ max-width: 772px;
 .detail-caption-block p + p {
   margin-top: 6px;
 }
+
+.video-file-block {
+  width: 100%;
+  max-width: 100%;
+  margin: 48px 0;
+  overflow: hidden;
+}
+
+.video-file-block video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 /* 响应式 */
 @media (max-width: 900px) {
   .layout {
