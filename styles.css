@@ -341,6 +341,14 @@ max-width: 772px;
   width: 100%;
   height: auto;
 }
+.detail-intro em {
+  font-style: normal;
+}
+
+.detail-intro p em {
+  display: inline-block;
+  margin-top: 14px;
+}
 /* 响应式 */
 @media (max-width: 900px) {
   .layout {
