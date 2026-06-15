@@ -871,3 +871,376 @@ max-width: 772px;
     font-size: 22px;
   }
 }
+
+
+
+/* =========================
+   Detail page
+========================= */
+
+.project-detail-page {
+  background: #ffffff;
+  color: #111111;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.detail-layout {
+  width: 100%;
+  max-width: 1220px;
+  margin-left: auto;
+  padding: 24px 24px 80px 24px;
+}
+
+.detail-header {
+  margin-bottom: 48px;
+}
+
+.back-link,
+.back-link:visited,
+.back-link:active {
+  color: #8a8a8a;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  opacity: 0.6;
+}
+
+.detail-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.detail-intro {
+  max-width: 620px;
+}
+
+.detail-intro p + p {
+  margin-top: 18px;
+}
+
+.intro-heading {
+  color: #8a8a8a;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+.intro-heading + p {
+  margin-top: 0;
+}
+
+.detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.meta-group p {
+  margin-bottom: 2px;
+}
+
+.meta-title {
+  margin-bottom: 10px;
+}
+
+.meta-label {
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.member-name {
+  color: #8a8a8a;
+}
+
+/* 大图：与下一段说明之间不要留大空隙 */
+.full-image-block {
+  width: 100%;
+  max-width: 100%;
+  margin: 48px 0 0 0;
+  overflow: hidden;
+}
+
+.full-image-block img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 图片下方说明：贴近上图，和下一组保持距离 */
+.detail-caption-block {
+  width: 100%;
+  max-width: 100%;
+  margin: 8px 0 56px 0;
+  color: #7f7f7f;
+}
+
+.detail-caption-block p {
+  margin: 0;
+}
+
+.detail-caption-block p + p {
+  margin-top: 6px;
+}
+
+/* 本地视频 */
+.video-file-block {
+  width: 100%;
+  max-width: 100%;
+  margin: 48px 0 0 0;
+  overflow: hidden;
+}
+
+.video-file-block video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 外链视频封面 */
+.detail-video-block {
+  width: 100%;
+  margin: 48px 0 0 0;
+}
+
+.video-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.video-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.video-play-icon {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.35));
+}
+
+.video-thumb:hover .video-play-icon {
+  opacity: 1;
+}
+
+/* 双栏视频说明 */
+.video-info-row {
+  width: 100%;
+  margin: 12px 0 56px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 32px;
+  align-items: start;
+  color: #7f7f7f;
+}
+
+.video-info-description p,
+.video-info-credits p {
+  margin: 0;
+}
+
+.video-info-description p + p {
+  margin-top: 6px;
+}
+
+.video-info-credits {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* 音频 */
+.audio-section {
+  width: 100%;
+  max-width: 700px;
+  margin: 32px 0 80px 0;
+}
+
+.audio-block {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.audio-block audio {
+  width: 100%;
+  display: block;
+}
+
+.audio-description {
+  margin-bottom: 16px;
+  color: #777777;
+}
+
+.audio-description p {
+  margin: 0;
+}
+
+.audio-description p + p {
+  margin-top: 4px;
+}
+
+.audio-credits {
+  color: #777777;
+}
+
+.audio-credits p {
+  margin-bottom: 4px;
+}
+
+/* guestbook */
+.guestbook-info {
+  width: 100%;
+  max-width: 700px;
+  margin: 48px 0 32px 0;
+  color: #7f7f7f;
+}
+
+.guestbook-info p {
+  margin: 0;
+}
+
+.guestbook-info p + p {
+  margin-top: 6px;
+}
+
+.guestbook-link a,
+.guestbook-link a:visited {
+  color: #8a8a8a;
+  text-decoration: none;
+}
+
+.guestbook-link a:hover {
+  opacity: 0.6;
+}
+
+/* 放大查看 */
+.zoomable-image {
+  cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+
+.zoomable-image:hover {
+  opacity: 0.92;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-image {
+  max-width: 88vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  border: none;
+  background: none;
+  color: #8a8a8a;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.lightbox-close:hover {
+  opacity: 0.45;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: #8a8a8a;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+
+.lightbox-nav:hover {
+  opacity: 0.45;
+}
+
+.lightbox-prev {
+  left: 18px;
+}
+
+.lightbox-next {
+  right: 18px;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .detail-layout {
+    padding: 20px 20px 60px 20px;
+  }
+
+  .detail-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+  }
+
+  .detail-intro {
+    max-width: 100%;
+  }
+
+  .video-info-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 12px 0 56px 0;
+  }
+
+  .lightbox-image {
+    max-width: 92vw;
+    max-height: 84vh;
+  }
+
+  .lightbox-nav {
+    font-size: 22px;
+  }
+}
