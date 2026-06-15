@@ -317,10 +317,9 @@ max-width: 772px;
 .detail-caption-block {
   width: 100%;
   max-width: 100%;
-  margin: 12px 0 56px 0;
+  margin: 4px 0 56px 0;
   color: #7f7f7f;
 }
-
 .detail-caption-block p {
   margin: 0;
 }
