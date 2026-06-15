@@ -1143,6 +1143,45 @@ max-width: 772px;
 .guestbook-link a:hover {
   opacity: 0.6;
 }
+.artists-section {
+  width: 100%;
+  max-width: 700px;
+  margin: 24px 0 80px 0;
+}
+
+.artist-entry {
+  margin-bottom: 48px;
+  color: #7f7f7f;
+}
+
+.artist-entry p {
+  margin: 0;
+}
+
+.artist-entry p + p {
+  margin-top: 6px;
+}
+
+.artist-name {
+  color: #111111;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.work-title {
+  margin-top: 14px;
+  color: #111111;
+}
+
+.artists-section a,
+.artists-section a:visited {
+  color: #8a8a8a;
+  text-decoration: none;
+}
+
+.artists-section a:hover {
+  opacity: 0.6;
+}
 
 /* 放大查看 */
 .zoomable-image {
